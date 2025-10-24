@@ -202,7 +202,7 @@ function TeamPage() {
     <main className="container mx-auto p-6">
       <div className="bg-white rounded-2xl p-6 shadow-md">
         <div className="flex items-center gap-4">
-          <div><img class="h-48 w-96 object-contain" src={t.logo}/></div>
+          <div><img class="h-48 w-96 object-contain" src={team.logo}/></div>
           <div>
             <h2 className="text-2xl font-bold">{team.name}</h2>
             <div className="text-sm text-gray-600">Owner: {team.owner}</div>
