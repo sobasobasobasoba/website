@@ -138,7 +138,7 @@ function Header() {
 
 function Home() {
   return (
-    <main className="container mx-auto p-6 bg-[https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/field.jpg]">
+    <main className="container mx-auto p-6 bg-[url(https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/field.jpg)]">
       <div className="rounded-2xl p-6 shadow-md">
         <h2 className="text-xl font-semibold mb-2">Welcome Commissioner</h2>
         <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
