@@ -144,7 +144,7 @@ function Home() {
         <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => (
-            <Link key={t.id} to={`/team/${t.id}`} className="p-4 border rounded hover:shadow bg-[url(https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/grass.png)]">
+            <Link key={t.id} to={`/team/${t.id}`} className="p-4 border rounded hover:shadow bg-onyx-400">
               <img class="h-48 w-96 object-contain" src={t.logo}/>
               <div className="font-bold">{t.name}</div>
               <div className="text-sm text-gray-600">Owner: {t.owner}</div>
