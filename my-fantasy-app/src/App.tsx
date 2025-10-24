@@ -165,8 +165,7 @@ function TeamsList() {
           {TEAMS.map((team) => (
             <li key={team.id} className="flex items-center justify-between p-3 border rounded">
               <div className="flex items-center gap-3">
-                <div className="text-2xl">{team.logo}</div>
-		<img src={team.logo}/>
+		            <img class="h-48 w-96 object-contain" src={team.logo}/>
                 <div>
                   <div className="font-semibold">{team.name}</div>
                   <div className="text-sm text-gray-600">Owner: {team.owner}</div>
@@ -203,7 +202,7 @@ function TeamPage() {
     <main className="container mx-auto p-6">
       <div className="bg-white rounded-2xl p-6 shadow-md">
         <div className="flex items-center gap-4">
-          <div><img src={team.logo}/></div>
+          <div><img class="h-48 w-96 object-contain" src={t.logo}/></div>
           <div>
             <h2 className="text-2xl font-bold">{team.name}</h2>
             <div className="text-sm text-gray-600">Owner: {team.owner}</div>
