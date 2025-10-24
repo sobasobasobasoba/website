@@ -138,13 +138,13 @@ function Header() {
 
 function Home() {
   return (
-    <main className="container mx-auto p-6 bg-[url(https://t3.ftcdn.net/jpg/05/30/89/80/360_F_530898042_ryIWPA4W4u5Yd1Hy9ZWlhsZB98vAfI1z.jpg)]">
+    <main className="container mx-auto p-6 bg-[url(https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/grass.png)]">
       <div className="rounded-2xl p-6 shadow-md">
         <h2 className="text-xl font-semibold mb-2">Welcome Commissioner</h2>
         <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => (
-            <Link key={t.id} to={`/team/${t.id}`} className="p-4 border rounded hover:shadow bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%">
+            <Link key={t.id} to={`/team/${t.id}`} className="p-4 border rounded hover:shadow bg-sky-100">
               <img class="h-48 w-96 object-contain" src={t.logo}/>
               <div className="font-bold">{t.name}</div>
               <div className="text-sm text-gray-600">Owner: {t.owner}</div>
