@@ -43,6 +43,83 @@ const TEAMS = [
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
   },
+  {
+    id: "jake",
+    name: "Gone & Forgotten",
+    owner: "Jake Pankey",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/logo-jake-new-white.png",
+    history: [
+      { season: 2021, wins: 11, losses: 2, ties: 0, place: 1 },
+      { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
+      { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
+    ],
+  },
+  {
+    id: "drake",
+    name: "Jonny's Sins",
+    owner: "Drake Vandenburg",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/DrakeNewLogoBig.png",
+    history: [
+      { season: 2021, wins: 11, losses: 2, ties: 0, place: 1 },
+      { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
+      { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
+    ],
+  },
+  {
+    id: "paul",
+    name: "The Dallzers",
+    owner: "Paul Ingle",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/logo-paul-new.png",
+    history: [
+      { season: 2021, wins: 11, losses: 2, ties: 0, place: 1 },
+      { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
+      { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
+    ],
+  },
+  {
+    id: "pat",
+    name: "Scumbags of Sleazeville",
+    owner: "Pat Isho",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/Logo-Pat-Transparent.png",
+    history: [
+      { season: 2021, wins: 11, losses: 2, ties: 0, place: 1 },
+      { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
+      { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
+    ],
+  },
+  {
+    id: "blake",
+    name: "The Astechings",
+    owner: "Blake Mazur",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/new-logo-Blake.png",
+    history: [
+      { season: 2021, wins: 11, losses: 2, ties: 0, place: 1 },
+      { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
+      { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
+    ],
+  },
+  {
+    id: "ox",
+    name: "The Ox Stampedes",
+    owner: "Mike Oxlong",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/OxLogoWithotWords.png",
+    history: [
+      { season: 2021, wins: 11, losses: 2, ties: 0, place: 1 },
+      { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
+      { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
+    ],
+  },
+  {
+    id: "derek",
+    name: "Reasons to Live",
+    owner: "Derek Mozden",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/Logo-Derek-Full-new.png",
+    history: [
+      { season: 2021, wins: 11, losses: 2, ties: 0, place: 1 },
+      { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
+      { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
+    ],
+  },
 ];
 
 function Header() {
