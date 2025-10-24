@@ -138,8 +138,8 @@ function Header() {
 
 function Home() {
   return (
-    <main className="container mx-auto p-6">
-      <div className="bg-white rounded-2xl p-6 shadow-md">
+    <main className="container mx-auto p-6 bg-[https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/field.jpg]">
+      <div className="rounded-2xl p-6 shadow-md">
         <h2 className="text-xl font-semibold mb-2">Welcome Commissioner</h2>
         <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -261,22 +261,9 @@ export default function App() {
           <Route path="/team/:id" element={<TeamPage />} />
           <Route path="*" element={<main className="container mx-auto p-6"><div className="bg-white p-6 rounded">404 — Not Found</div></main>} />
         </Routes>
-        <footer className="text-center p-4 text-sm text-gray-500">Fantasy League Manager • Generated App</footer>
+        <footer className="text-center p-4 text-sm text-gray-500">Monitoring Redefined</footer>
       </div>
     </Router>
   );
 }
 
-/*
-  Quick setup notes (not included in the code above):
-  1) Create a project (Vite recommended):
-     npm create vite@latest my-fantasy-app --template react
-     cd my-fantasy-app
-  2) Install dependencies:
-     npm install react-router-dom
-  3) Install and configure Tailwind CSS following the official guide.
-  4) Replace src/App.jsx with this file. Ensure index.css imports Tailwind directives.
-  5) Run locally: npm run dev
-
-  To adapt to React Native Web / Expo-managed workflow, place components into .native.js/.web.js splits and configure expo for web.
-*/
