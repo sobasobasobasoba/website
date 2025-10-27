@@ -145,7 +145,7 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => (
             <Link key={t.id} to={`/team/${t.id}`} className="p-4 border rounded hover:shadow bg-onyx-400">
-              <img class="h-48 w-96 object-contain" src={t.logo}/>
+              <img class="h-48 w-96 object-contain drop-shadow-xl/50" src={t.logo}/>
               <div className="font-bold">{t.name}</div>
               <div className="text-sm text-gray-600">Owner: {t.owner}</div>
             </Link>
@@ -165,13 +165,15 @@ function TeamsList() {
           {TEAMS.map((team) => (
             <li key={team.id} className="flex items-center justify-between p-3 border rounded">
               <div className="flex items-center gap-3">
-		            <img class="h-48 w-96 object-contain" src={team.logo}/>
+		            <img class="h-48 w-96 object-contain ring-2 ring-black-500" src={team.logo}/>
                 <div>
                   <div className="font-semibold">{team.name}</div>
                   <div className="text-sm text-gray-600">Owner: {team.owner}</div>
                 </div>
               </div>
-              <Link to={`/team/${team.id}`} className="px-3 py-1 rounded bg-indigo-600 text-white">View</Link>
+              <div>
+                <Link to={`/team/${team.id}`} className="px-3 py-1 rounded bg-indigo-600 text-white">View</Link>
+              </div>
             </li>
           ))}
         </ul>
