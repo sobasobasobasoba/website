@@ -160,7 +160,7 @@ function Header() {
   );
 }
 
-function Home() {
+async function Home() {
 
   const response = await fetch('/api/hello');
   const body = await response.json();
