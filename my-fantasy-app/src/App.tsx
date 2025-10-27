@@ -8,6 +8,30 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 
+const fake_teams=[
+  {
+    id: "jonny",
+    vsRecords:{
+      nate: {wins:2, losses:1},
+      pat: {wins:3, losses: 0}
+    }
+  },
+  {
+    id: "nate",
+    vsRecords:{
+      jonny:{wins:1, losses:2},
+      pat: {wins: 2, losses: 1}
+    }
+  },
+  {
+    id: "pat",
+    vsRecords:{
+      jonny:{wins:0, losses: 3},
+      nate: {wins:1, losses: 2}
+    }
+  }
+];
+
 // Example dataset: each team has historical seasons with records
 const TEAMS = [
   {
@@ -185,6 +209,7 @@ function TeamsList() {
 function TeamPage() {
   const { id } = useParams();
   const team = TEAMS.find((t) => t.id === id);
+  const fake_team = fake_teams.find((t) => t.id === id);
 
   if (!team) {
     return (
@@ -234,6 +259,31 @@ function TeamPage() {
                   <td>{h.place}</td>
                 </tr>
               ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-6">
+          <h3 className="font-semibold">Records vs. Every Other Team</h3>
+          <table className="w-full mt-3 table-auto border-collapse">
+            <thead>
+              <tr className="text-left border-b">
+                <th className="py-2">Opponent</th>
+                <th>W</th>
+                <th>L</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(fake_team.vsRecords).map(([oppId, rec]) => {
+                const opp = TEAMS.find((t) => t.id === oppId);
+                return (
+                  <tr key={oppId} className="border-b">
+                    <td className="py-2">{opp ? opp.name : oppId}</td>
+                    <td>{rec.wins}</td>
+                    <td>{rec.losses}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
