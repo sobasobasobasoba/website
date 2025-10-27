@@ -191,8 +191,6 @@ async function Home() {
   return (
     <main className="container mx-auto p-6 bg-white">
       <div className="rounded-2xl p-6 shadow-md">
-        <h2 className="text-black font-semibold mb-2"><script>const res = await fetch("/api/hello"); const data = await res.json(); return data;</script></h2>
-        <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => (
             <Link key={t.id} to={`/team/${t.id}`} className="p-4 border rounded hover:shadow bg-onyx-400">
