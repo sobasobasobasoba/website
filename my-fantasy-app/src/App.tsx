@@ -165,7 +165,7 @@ function TeamsList() {
           {TEAMS.map((team) => (
             <li key={team.id} className="flex items-center justify-between p-3 border rounded">
               <div className="flex items-center gap-3">
-		            <img class="h-48 w-96 object-contain ring-2 ring-black-500" src={team.logo}/>
+		            <img class="h-48 w-96 object-contain drop-shadow-xl/50" src={team.logo}/>
                 <div>
                   <div className="font-semibold">{team.name}</div>
                   <div className="text-sm text-gray-600">Owner: {team.owner}</div>
@@ -255,7 +255,7 @@ function TeamPage() {
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen min-w-screen bg-gray-50">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
