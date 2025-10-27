@@ -161,10 +161,14 @@ function Header() {
 }
 
 function Home() {
+
+  const response = await fetch('/api/hello');
+  const body = await response.json();
+
   return (
     <main className="container mx-auto p-6 bg-white">
       <div className="rounded-2xl p-6 shadow-md">
-        <h2 className="text-xl font-semibold mb-2">Welcome Commissioner</h2>
+        <h2 className="text-black font-semibold mb-2">{body}</h2>
         <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => (
