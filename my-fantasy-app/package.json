@@ -2,7 +2,7 @@
     "name": "my-fantasy-app",
     "version": "1.0.0",
     "scripts": {
-        "client": "cd client && vite",
+        "client": "cd client && npm run dev -- --host",
         "server": "nodemon server.js",
         "dev": "concurrently --kil-others-on-fail \"npm run server\" \"npm run client\""
     },
