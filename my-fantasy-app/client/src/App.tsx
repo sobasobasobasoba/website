@@ -5,7 +5,7 @@
 // - Uses React Router for navigation. Install: react, react-dom, react-router-dom, tailwindcss configured.
 // - You can adapt components to React Native Web by replacing DOM elements with react-native primitives.
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 
 const fake_teams=[
@@ -162,13 +162,36 @@ function Header() {
 
 async function Home() {
 
-  const response = await fetch('/api/hello');
-  const body = await response.json();
+  const [teamInfo, setTeamInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchTeamInfo() {
+      try{
+        const response = await fetch("/api/hello");
+        if(!response.ok){
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setTeamInfo(data);
+      } catch (err) {
+        console.error("failed to fetch team info:", err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchTeamInfo();
+  }, []);
+
+  if (loading) return <main className="p-6 text-center">Loading team info...</main>;
+  if (error) return <main className="p-6 text-center text-red-600">Error: {error}</main>;
 
   return (
     <main className="container mx-auto p-6 bg-white">
       <div className="rounded-2xl p-6 shadow-md">
-        <h2 className="text-black font-semibold mb-2">{body}</h2>
+        <h2 className="text-black font-semibold mb-2">{teamInfo}</h2>
         <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => (
