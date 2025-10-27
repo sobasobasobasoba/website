@@ -319,8 +319,9 @@ function TeamPage() {
                   <tr key={oppId} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
                       <p class="block text-sm text-slate-800">
-                        {opp ? opp.name : oppId}</td>
+                        {opp ? opp.name : oppId}
                       </p>
+                    </td>
                     <td className="p-4 border-b border-slate-200">
                       <p class="block text-sm text-slate-800">
                         {rec.wins}
