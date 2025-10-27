@@ -290,24 +290,47 @@ function TeamPage() {
           </table>
         </div>
 
-        <div className="mt-6">
+        <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
           <h3 className="font-semibold">Records vs. Every Other Team</h3>
-          <table className="w-full mt-3 table-auto border-collapse">
+          <table className="w-full text-left table-auto min-w-max">
             <thead>
-              <tr className="text-left border-b">
-                <th className="py-2">Opponent</th>
-                <th>W</th>
-                <th>L</th>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
+                    Opponent
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
+                    W
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
+                    L
+                  </p>
+                </th>
               </tr>
             </thead>
             <tbody>
               {Object.entries(fake_team.vsRecords).map(([oppId, rec]) => {
                 const opp = TEAMS.find((t) => t.id === oppId);
                 return (
-                  <tr key={oppId} className="border-b">
-                    <td className="py-2">{opp ? opp.name : oppId}</td>
-                    <td>{rec.wins}</td>
-                    <td>{rec.losses}</td>
+                  <tr key={oppId} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                      <p class="block text-sm text-slate-800">
+                        {opp ? opp.name : oppId}</td>
+                      </p>
+                    <td className="p-4 border-b border-slate-200">
+                      <p class="block text-sm text-slate-800">
+                        {rec.wins}
+                      </p>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <p class="block text-sm text-slate-800">
+                        {rec.losses}
+                      </p>
+                    </td>
                   </tr>
                 );
               })}
