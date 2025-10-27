@@ -237,26 +237,34 @@ function TeamPage() {
           </div>
         </div>
 
-        <div className="mt-6">
+        <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
           <h3 className="font-semibold">Season-by-season</h3>
-          <table className="w-full mt-3 table-auto border-collapse">
+          <table className="w-full text-left table-auto min-w-max">
             <thead>
               <tr className="text-left border-b">
-                <th className="py-2">Season</th>
-                <th>W</th>
-                <th>L</th>
-                <th>T</th>
-                <th>Place</th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">Season</th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">W</th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">L</th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">T</th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">Place</th>
               </tr>
             </thead>
             <tbody>
               {team.history.map((h) => (
-                <tr key={h.season} className="border-b">
-                  <td className="py-2">{h.season}</td>
-                  <td>{h.wins}</td>
-                  <td>{h.losses}</td>
-                  <td>{h.ties}</td>
-                  <td>{h.place}</td>
+                <tr key={h.season} className="border-b hover:bg-slate-50">
+                  <td className="py-2 p-4 border-b border-slate-200">
+                    <p class="block text-sm text-slate-800">{h.season}</p></td>
+                  <td>
+                    <p class="block text-sm text-slate-800">{h.wins}</p></td>
+                  <td>
+                    <p class="block text-sm text-slate-800">{h.losses}</p>
+                  </td>
+                  <td>
+                    <p class="block text-sm text-slate-800">{h.ties}</p>
+                  </td>
+                  <td>
+                    <p class="block text-sm text-slate-800">{h.place}</p>
+                  </td>
                 </tr>
               ))}
             </tbody>
