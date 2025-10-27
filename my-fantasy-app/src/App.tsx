@@ -241,18 +241,37 @@ function TeamPage() {
           <h3 className="font-semibold">Season-by-season</h3>
           <table className="w-full text-left table-auto min-w-max">
             <thead>
-              <tr className="text-left border-b">
-                <th className="p-4 border-b border-slate-300 bg-slate-50">Season</th>
-                <th className="p-4 border-b border-slate-300 bg-slate-50">W</th>
-                <th className="p-4 border-b border-slate-300 bg-slate-50">L</th>
-                <th className="p-4 border-b border-slate-300 bg-slate-50">T</th>
-                <th className="p-4 border-b border-slate-300 bg-slate-50">Place</th>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
+                    Season
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
+                    W
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
+                    L
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
+                    T
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50"><p class="block text-sm font-normal leading-none text-slate-500">
+                    Place
+                  </p>
+                </th>
               </tr>
             </thead>
             <tbody>
               {team.history.map((h) => (
-                <tr key={h.season} className="border-b hover:bg-slate-50">
-                  <td className="py-2 p-4 border-b border-slate-200">
+                <tr key={h.season} className="hover:bg-slate-50">
+                  <td className="p-4 border-b border-slate-200">
                     <p class="block text-sm text-slate-800">{h.season}</p></td>
                   <td>
                     <p class="block text-sm text-slate-800">{h.wins}</p></td>
