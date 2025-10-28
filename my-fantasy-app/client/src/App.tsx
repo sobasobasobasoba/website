@@ -181,7 +181,7 @@ function Home() {
       fetch("http://34.228.160.226:5000/api/hello")
         .then(response=> response.json())
         .then(resJSON => {
-          setTeamInfo(`<pre>${JSON.stringify(resJSON, null, 2)}</pre>`);
+          setTeamInfo(resJSON);
           setLoading(false);
         })
         .catch(error => {
@@ -199,7 +199,11 @@ function Home() {
     
     <main className="container mx-auto p-6 bg-white">
       <div className="rounded-2xl p-6 shadow-md">
-        <h2 id="displayhello" className="text-black font-semibold mb-2">{teamInfo}</h2>
+        {
+          teamInfo.map((m) => (
+            <div className="font-bold">Week {m.week}, {m.year} - {m.winningTeam} beat {m.losingTeam} with a score of {m.winningScore} to {m.losingScore}</div>
+          ))
+        }
         <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => (
