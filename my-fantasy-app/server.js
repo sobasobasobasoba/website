@@ -8,23 +8,22 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/api/hello', (req, res) => {
-    res.set({"Access-Control-Allow-Origin": "*"})
-    let con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "Teddy1065Dredge!"
-    });
+const con = await mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "Teddy1065Dredge!"
+});
 
-    con.connect(function(err) {
-        if (err) throw err;
-        console.log("Connected!");
-        con.query("SELECT * FROM monitoring_redefined.matchups", function (err, result) {
-            if (err) throw err;
-            console.log("Result: " + result);
-        });
-    });
-    res.send(result);
+app.get('/api/hello', async (req, res) => {
+    var query = "SELECT * FROM monitoring_redefined.matchups;";
+    try {
+        const [rows] = await con.query(query);
+        res.set({"Access-Control-Allow-Origin": "*"})
+        res.json(rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({error: 'Database error'});
+    }
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
