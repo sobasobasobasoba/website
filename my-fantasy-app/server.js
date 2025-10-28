@@ -19,8 +19,12 @@ app.get('/api/hello', (req, res) => {
     con.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
+        con.query("SELECT * FROM monitoring_redefined.matchups", function (err, result) {
+            if (err) throw err;
+            console.log("Result: " + result);
+        });
     });
-    res.send({express: 'Hello From Express'});
+    res.send(result);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
