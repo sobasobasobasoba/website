@@ -351,22 +351,30 @@ function TeamPage() {
                 return (
                   <tr key={oppId} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
+                      <div class="max-h-24 overflow-y-auto">
                         <img class="h-full w-full drop-shadow-xl/50" src={opp.logo}/>
+                      </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">
-                        {opp ? opp.name : oppId}
-                      </p>
+                      <div class="max-h-24 overflow-y-auto">
+                        <p class="block text-sm text-slate-800">
+                          {opp ? opp.name : oppId}
+                        </p>
+                      </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">
-                        {rec.wins}
-                      </p>
+                      <div class="max-h-24 overflow-y-auto">
+                        <p class="block text-sm text-slate-800">
+                          {rec.wins}
+                        </p>
+                      </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <p class="block text-sm text-slate-800">
-                        {rec.losses}
-                      </p>
+                      <div class="max-h-24 overflow-y-auto">
+                        <p class="block text-sm text-slate-800">
+                          {rec.losses}
+                        </p>
+                      </div>
                     </td>
                   </tr>
                 );
