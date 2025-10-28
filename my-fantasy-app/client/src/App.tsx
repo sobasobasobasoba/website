@@ -173,7 +173,7 @@ function Home() {
         if(!response.ok){
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        const data = await response.json();
+        const data = await response.text();
         setTeamInfo(data);
       } catch (err) {
         console.error("failed to fetch team info:", err);
