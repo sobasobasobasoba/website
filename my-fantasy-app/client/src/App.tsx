@@ -169,7 +169,7 @@ function Home() {
   useEffect(() => {
     async function fetchTeamInfo() {
       try{
-        const response = await fetch("/api/hello");
+        const response = await fetch("http://34.228.160.226:5000/api/hello");
         if(!response.ok){
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
