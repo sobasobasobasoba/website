@@ -183,7 +183,7 @@ function Home() {
         .then(resJSON => {
           setTeamInfo(resJSON);
           setLoading(false);
-          
+
         })
         .catch(error => {
           console.error('Error fetching data:', error);
@@ -202,7 +202,7 @@ function Home() {
       <div className="rounded-2xl p-6 shadow-md">
         {
           teamInfo.map((m) => (
-            <div className="font-bold">Week {m.week}, {m.year} - {m.winningTeam} beat {m.losingTeam} with a score of {m.winningScore} to {m.losingScore}</div>
+            <div className="font-bold text-black">Week {m.week}, {m.year} - {m.winningTeam} beat {m.losingTeam} with a score of {m.winningTeamPoints} to {m.losingTeamPoints}</div>
           ))
         }
         <p className="mb-4">This small app lists each team's historical season records. Click "Teams" to see the list or search for a team by its ID.</p>
