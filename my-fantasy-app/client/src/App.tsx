@@ -178,7 +178,7 @@ function Home() {
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://34.228.160.226:5000/api/hello")
+      fetch("http://184.72.214.123:5000/api/hello")
         .then(response=> response.json())
         .then(resJSON => {
           console.log(resJSON);
@@ -266,7 +266,7 @@ function TeamPage() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://34.228.160.226:5000/api/team/?team=" + team.id)
+      fetch("http://184.72.214.123:5000/api/team/?team=" + team.id)
         .then(response=> response.json())
         .then(resJSON => {
           let yearRecords = {};
