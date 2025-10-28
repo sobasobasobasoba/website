@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/api/hello', (req, res) => {
+    res.set({"Access-Control-Allow-Origin": "*"})
     res.send({express: 'Hello From Express'});
 });
 
