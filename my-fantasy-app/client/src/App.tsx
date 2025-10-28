@@ -268,21 +268,34 @@ function TeamPage() {
       fetch("http://34.228.160.226:5000/api/team/?team=" + team.id)
         .then(response=> response.json())
         .then(resJSON => {
+          let yearRecords = {};
           let vsRecords = {};
           for (let i = 0; i < resJSON.length; i++){
-            console.log("useEffect");
-            console.log(resJSON);
-            console.log(resJSON.winningTeam);
-            console.log(resJSON.losingTeam);
-            console.log(team.id)
-            console.log("End useEffect");
+
+            
+
+            
             if (resJSON[i].winningTeam == team.id){
+              //adding yearRecords data
+              if(resJSON[i].year in yearRecords){
+                yearRecords[resJSON[i].year]["wins"]++;
+              } else {
+                yearRecords[resJSON[i].year] = {wins: 1, losses: 0};
+              }
+              //adding vsRecords data
               if(resJSON[i].losingTeam in vsRecords){
                 vsRecords[resJSON[i].losingTeam]["wins"] ++;
               } else {
                 vsRecords[resJSON[i].losingTeam] = {wins: 1, losses: 0}
               }
             } else {
+              //adding yearRecords data
+              if(resJSON[i].year in yearRecords){
+                yearRecords[resJSON[i].year]["losses"]++;
+              } else {
+                yearRecords[resJSON[i].year] = {wins: 0, losses: 1};
+              }
+              //adding vsRecords data
               if(resJSON.winningTeam in vsRecords){
                 vsRecords[resJSON[i].winningTeam]["losses"]++;
               } else {
@@ -291,7 +304,7 @@ function TeamPage() {
             }
 
           }
-          setTeamInfo(vsRecords);
+          setTeamInfo({yearRecords: yearRecords, vsRecords: vsRecords});
           setLoading(false);
         })
         .catch(error => {
@@ -350,35 +363,21 @@ function TeamPage() {
                     L
                   </p>
                 </th>
-                <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p class="block text-sm font-normal leading-none text-slate-500">
-                    T
-                  </p>
-                </th>
-                <th className="p-4 border-b border-slate-300 bg-slate-50"><p class="block text-sm font-normal leading-none text-slate-500">
-                    Place
-                  </p>
-                </th>
               </tr>
             </thead>
             <tbody>
-              {team.history.map((h) => (
-                <tr key={h.season} className="hover:bg-slate-50">
+              {Object.entries(teamInfo.yearRecords).map(([year, rec]) => {
+                return (
+                <tr key={year} className="hover:bg-slate-50">
                   <td className="p-4 border-b border-slate-200">
-                    <p class="block text-sm text-slate-800">{h.season}</p></td>
+                    <p class="block text-sm text-slate-800">{year}</p></td>
                   <td>
-                    <p class="block text-sm text-slate-800">{h.wins}</p></td>
+                    <p class="block text-sm text-slate-800">{rec.wins}</p></td>
                   <td>
-                    <p class="block text-sm text-slate-800">{h.losses}</p>
-                  </td>
-                  <td>
-                    <p class="block text-sm text-slate-800">{h.ties}</p>
-                  </td>
-                  <td>
-                    <p class="block text-sm text-slate-800">{h.place}</p>
+                    <p class="block text-sm text-slate-800">{rec.losses}</p>
                   </td>
                 </tr>
-              ))}
+              )})}
             </tbody>
           </table>
         </div>
@@ -411,12 +410,8 @@ function TeamPage() {
               </tr>
             </thead>
             <tbody>
-              {Object.entries(teamInfo).map(([oppId, rec]) => {
+              {Object.entries(teamInfo.vsRecords).map(([oppId, rec]) => {
                 const opp = TEAMS.find((t) => t.id === oppId);
-                console.log("oppId");
-                console.log(oppId);
-                console.log(teamInfo);
-                console.log(opp);
                 return (
                   <tr key={oppId} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
