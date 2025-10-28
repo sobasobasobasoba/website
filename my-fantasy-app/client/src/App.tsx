@@ -276,17 +276,17 @@ function TeamPage() {
             console.log(resJSON.losingTeam);
             console.log(team.id)
             console.log("End useEffect");
-            if (resJSON.winningTeam == team.id){
-              if(resJSON.losingTeam in vsRecords){
-                vsRecords[resJSON.losingTeam]["wins"] ++;
+            if (resJSON[i].winningTeam == team.id){
+              if(resJSON[i].losingTeam in vsRecords){
+                vsRecords[resJSON[i].losingTeam]["wins"] ++;
               } else {
-                vsRecords[resJSON.losingTeam] = {wins: 1, losses: 0}
+                vsRecords[resJSON[i].losingTeam] = {wins: 1, losses: 0}
               }
             } else {
               if(resJSON.winningTeam in vsRecords){
-                vsRecords[resJSON.losingTeam]["losses"]++;
+                vsRecords[resJSON[i].losingTeam]["losses"]++;
               } else {
-                vsRecords[resJSON.losingTeam] = {wins: 0, losses: 1}
+                vsRecords[resJSON[i].losingTeam] = {wins: 0, losses: 1}
               }
             }
 
