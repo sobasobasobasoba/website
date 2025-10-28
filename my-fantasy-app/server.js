@@ -76,6 +76,8 @@ app.get("/api/hello", (req, res) => {
 // return all matchups from this team
 app.get("/api/team", (req, res) => {
     var team = req.query.team;
+    console.log("TEAM");
+    console.log(team);
     if (!(/^[a-zA-Z]+$/.test(team))){
         console.error("Not a real team");
         res.set({"Access-Control-Allow-Origin": "*"})
