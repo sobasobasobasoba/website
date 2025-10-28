@@ -1,6 +1,6 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mysql = require('mysql2');
+const express = import('express');
+const bodyParser = import('body-parser');
+const mysql = import('mysql2');
 
 const app = express();
 const port = process.env.PORT || 5000;
