@@ -73,4 +73,27 @@ app.get("/api/hello", (req, res) => {
     });
 });
 
+// return all matchups from this team
+app.get("/api/team", (req, res) => {
+    var team = req.query.team;
+    if (!/^[a-zA-Z]+$/.test(team)){
+        console.error("Not a real team", err);
+        res.set({"Access-Control-Allow-Origin": "*"})
+        res.status(500).json({ error: "Not a real team" });
+    } else {
+        var query = `SELECT * FROM monitoring_redefined.matchups WHERE winningTeam = ${team} OR losingTeam = ${team};`;
+        db.query(query, (err, results) => {
+            if (err) {
+                console.error("Database query error:", err);
+                res.set({"Access-Control-Allow-Origin": "*"})
+                res.status(500).json({ error: "Database error" });
+            }   else {
+                res.set({"Access-Control-Allow-Origin": "*"})
+                res.json(results);
+            }
+        });
+    }
+
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -249,7 +249,6 @@ function TeamsList() {
 function TeamPage() {
   const { id } = useParams();
   const team = TEAMS.find((t) => t.id === id);
-  const fake_team = fake_teams.find((t) => t.id === id);
 
   if (!team) {
     return (
@@ -262,12 +261,43 @@ function TeamPage() {
     );
   }
 
+  const [teamInfo, setTeamInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    async function fetchTeamInfo() {
+      fetch("http://34.228.160.226:5000/api/team/?team=" + team)
+        .then(response=> response.json())
+        .then(resJSON => {
+          setTeamInfo(resJSON);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          setLoading(false);
+        })
+
+    }
+    fetchTeamInfo();
+  }, []);
+
+
+  const fake_team = fake_teams.find((t) => t.id === id);
+
+
+
   const totalWins = team.history.reduce((s, r) => s + r.wins, 0);
   const totalLosses = team.history.reduce((s, r) => s + r.losses, 0);
 
+  if (loading) return <main className="p-6 text-center">Loading team info...</main>;
+  
   return (
     <main className="container mx-auto p-6">
       <div className="bg-white rounded-2xl p-6 shadow-md">
+        {
+          teamInfo.map((m) => (
+            <div className="font-bold text-black">Week {m.week}, {m.year} - {m.winningTeam} beat {m.losingTeam} with a score of {m.winningTeamPoints} to {m.losingTeamPoints}</div>
+          ))
+        }
         <div className="flex items-center gap-4">
           <div><img class="h-48 w-96 object-contain" src={team.logo}/></div>
           <div>
