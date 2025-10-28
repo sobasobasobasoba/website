@@ -351,7 +351,7 @@ function TeamPage() {
                 return (
                   <tr key={oppId} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
-                        <img class="object-contain drop-shadow-xl/50" src={opp.logo}/>
+                        <img class="h-full w-full drop-shadow-xl/50" src={opp.logo}/>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <p class="block text-sm text-slate-800">
