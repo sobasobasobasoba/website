@@ -175,29 +175,25 @@ function Home() {
 
   const [teamInfo, setTeamInfo] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      try{
-        const response = await fetch("http://34.228.160.226:5000/api/hello");
-        if(!response.ok){
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.text();
-        setTeamInfo(data);
-      } catch (err) {
-        console.error("failed to fetch team info:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
+      fetch("http://34.228.160.226:5000/api/hello")
+        .then(response=> response.json())
+        .then(resJSON => {
+          setTeamInfo(resJSON);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          setLoading(false);
+        })
+
     }
     fetchTeamInfo();
   }, []);
 
   if (loading) return <main className="p-6 text-center">Loading team info...</main>;
-  if (error) return <main className="p-6 text-center text-red-600">Error: {error}</main>;
 
   return (
     
