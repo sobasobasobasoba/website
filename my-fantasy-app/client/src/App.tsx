@@ -270,6 +270,12 @@ function TeamPage() {
         .then(resJSON => {
           let vsRecords = {};
           for (let i = 0; i < resJSON.length; i++){
+            console.log("useEffect");
+            console.log(resJSON);
+            console.log(resJSON.winningTeam);
+            console.log(resJSON.losingTeam);
+            console.log(team.id)
+            console.log("End useEffect");
             if (resJSON.winningTeam == team.id){
               if(resJSON.losingTeam in vsRecords){
                 vsRecords[resJSON.losingTeam]["wins"] ++;
