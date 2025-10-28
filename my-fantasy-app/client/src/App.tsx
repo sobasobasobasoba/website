@@ -283,7 +283,7 @@ function TeamPage() {
                 vsRecords[resJSON[i].losingTeam] = {wins: 1, losses: 0}
               }
             } else {
-              if(resJSON.winningTeam in vsRecords){
+              if(resJSON.losingTeam in vsRecords){
                 vsRecords[resJSON[i].losingTeam]["losses"]++;
               } else {
                 vsRecords[resJSON[i].losingTeam] = {wins: 0, losses: 1}
