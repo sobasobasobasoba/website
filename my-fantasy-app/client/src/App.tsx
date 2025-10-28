@@ -181,6 +181,7 @@ function Home() {
       fetch("http://34.228.160.226:5000/api/hello")
         .then(response=> response.json())
         .then(resJSON => {
+          console.log(resJSON);
           setTeamInfo(resJSON);
           setLoading(false);
 
