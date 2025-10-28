@@ -268,7 +268,24 @@ function TeamPage() {
       fetch("http://34.228.160.226:5000/api/team/?team=" + team.id)
         .then(response=> response.json())
         .then(resJSON => {
-          setTeamInfo(resJSON);
+          let vsRecords = {};
+          for (let i = 0; i < resJSON.length(); i++){
+            if (resJSON.winningTeam == team.id){
+              if(resJSON.losingTeam in vsRecords){
+                vsRecords[resJSON.losingTeam]["wins"] ++;
+              } else {
+                vsRecords[resJSON.losingTeam] = {wins: 1, losses: 0}
+              }
+            } else {
+              if(resJSON.winningTeam in vsRecords){
+                vsRecords[resJSON.losingTeam]["losses"]++;
+              } else {
+                vsRecords[resJSON.losingTeam] = {wins: 0, losses: 1}
+              }
+            }
+
+          }
+          setTeamInfo(vsRecords);
           setLoading(false);
         })
         .catch(error => {
@@ -293,11 +310,11 @@ function TeamPage() {
   return (
     <main className="container mx-auto p-6">
       <div className="bg-white rounded-2xl p-6 shadow-md">
-        {
+        {/* {
           teamInfo.map((m) => (
             <div className="font-bold text-black">Week {m.week}, {m.year} - {m.winningTeam} beat {m.losingTeam} with a score of {m.winningTeamPoints} to {m.losingTeamPoints}</div>
           ))
-        }
+        } */}
         <div className="flex items-center gap-4">
           <div><img class="h-48 w-96 object-contain" src={team.logo}/></div>
           <div>
@@ -388,7 +405,7 @@ function TeamPage() {
               </tr>
             </thead>
             <tbody>
-              {Object.entries(fake_team.vsRecords).map(([oppId, rec]) => {
+              {Object.entries(teamInfo).map(([oppId, rec]) => {
                 const opp = TEAMS.find((t) => t.id === oppId);
                 return (
                   <tr key={oppId} className="hover:bg-slate-50">
