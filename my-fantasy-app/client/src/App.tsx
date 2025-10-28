@@ -407,6 +407,9 @@ function TeamPage() {
             <tbody>
               {Object.entries(teamInfo).map(([oppId, rec]) => {
                 const opp = TEAMS.find((t) => t.id === oppId);
+                console.log("oppId");
+                console.log(oppId);
+                console.log(teamInfo);
                 console.log(opp);
                 return (
                   <tr key={oppId} className="hover:bg-slate-50">
