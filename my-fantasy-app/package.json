@@ -7,8 +7,10 @@
         "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
     },
     "dependencies": {
+        "@tailwindcss/vite": "^4.1.16",
         "body-parser": "^1.18.3",
-        "express": "^4.16.4"
+        "express": "^4.16.4",
+        "mysql": "^2.3.2"
     },
     "devDependencies": {
         "concurrently": "^4.0.1",
