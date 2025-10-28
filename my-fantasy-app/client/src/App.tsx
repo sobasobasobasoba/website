@@ -197,7 +197,7 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => (
             <Link key={t.id} to={`/team/${t.id}`} className="p-4 border rounded hover:shadow bg-onyx-400">
-              <img class="h-48 w-96 object-contain drop-shadow-xl/50" src={t.logo}/>
+              <img className="h-48 w-96 object-contain drop-shadow-xl/50" src={t.logo}/>
               <div className="font-bold">{t.name}</div>
               <div className="text-sm text-gray-600">Owner: {t.owner}</div>
             </Link>
@@ -325,6 +325,11 @@ function TeamPage() {
               <tr>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
                   <p class="block text-sm font-normal leading-none text-slate-500">
+                    Logo
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p class="block text-sm font-normal leading-none text-slate-500">
                     Opponent
                   </p>
                 </th>
@@ -345,6 +350,9 @@ function TeamPage() {
                 const opp = TEAMS.find((t) => t.id === oppId);
                 return (
                   <tr key={oppId} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                        <img class="object-contain drop-shadow-xl/50" src={opp.logo}/>
+                    </td>
                     <td className="p-4 border-b border-slate-200">
                       <p class="block text-sm text-slate-800">
                         {opp ? opp.name : oppId}
