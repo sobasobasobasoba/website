@@ -13,21 +13,32 @@ const fake_teams=[
     id: "jonny",
     vsRecords:{
       nate: {wins:2, losses:1},
-      pat: {wins:3, losses: 0}
+      pat: {wins:3, losses: 0},
+      paul: {wins: 3, losses:0}
     }
   },
   {
     id: "nate",
     vsRecords:{
       jonny:{wins:1, losses:2},
-      pat: {wins: 2, losses: 1}
+      pat: {wins: 2, losses: 1},
+      paul: {wins: 2, losses: 1}
     }
   },
   {
     id: "pat",
     vsRecords:{
       jonny:{wins:0, losses: 3},
-      nate: {wins:1, losses: 2}
+      nate: {wins:1, losses: 2},
+      paul: {wins:3, losses: 0}
+    }
+  },
+  {
+    id: "paul",
+    vsRecords:{
+      jonny:{wins:0, losses: 3},
+      nate: {wins:1, losses: 2},
+      pat: {wins:0,losses:3}
     }
   }
 ];
