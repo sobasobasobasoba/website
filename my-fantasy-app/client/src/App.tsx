@@ -269,7 +269,7 @@ function TeamPage() {
         .then(response=> response.json())
         .then(resJSON => {
           let vsRecords = {};
-          for (let i = 0; i < resJSON.length(); i++){
+          for (let i = 0; i < resJSON.length; i++){
             if (resJSON.winningTeam == team.id){
               if(resJSON.losingTeam in vsRecords){
                 vsRecords[resJSON.losingTeam]["wins"] ++;
