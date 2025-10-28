@@ -83,7 +83,7 @@ app.get("/api/team", (req, res) => {
         res.set({"Access-Control-Allow-Origin": "*"})
         res.status(500).json({ error: "Not a real team" });
     } else {
-        var query = `SELECT * FROM monitoring_redefined.matchups WHERE winningTeam = ${team} OR losingTeam = ${team};`;
+        var query = `SELECT * FROM monitoring_redefined.matchups WHERE winningTeam = '${team}' OR losingTeam = '${team}';`;
         db.query(query, (err, results) => {
             if (err) {
                 console.error("Database query error:", err);
