@@ -265,7 +265,7 @@ function TeamPage() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://34.228.160.226:5000/api/team/?team=" + team)
+      fetch("http://34.228.160.226:5000/api/team/?team=" + team.id)
         .then(response=> response.json())
         .then(resJSON => {
           setTeamInfo(resJSON);
@@ -289,7 +289,7 @@ function TeamPage() {
   const totalLosses = team.history.reduce((s, r) => s + r.losses, 0);
 
   if (loading) return <main className="p-6 text-center">Loading team info...</main>;
-  
+
   return (
     <main className="container mx-auto p-6">
       <div className="bg-white rounded-2xl p-6 shadow-md">
