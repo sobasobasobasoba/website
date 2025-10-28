@@ -370,11 +370,11 @@ function TeamPage() {
                 return (
                 <tr key={year} className="hover:bg-slate-50">
                   <td className="p-4 border-b border-slate-200">
-                    <p class="block text-sm text-slate-800">{year}</p></td>
+                    <p className="block text-sm text-slate-800 border-b">{year}</p></td>
                   <td>
-                    <p class="block text-sm text-slate-800">{rec.wins}</p></td>
+                    <p className="block text-sm text-slate-800 border-b">{rec.wins}</p></td>
                   <td>
-                    <p class="block text-sm text-slate-800">{rec.losses}</p>
+                    <p className="block text-sm text-slate-800 border-b">{rec.losses}</p>
                   </td>
                 </tr>
               )})}
