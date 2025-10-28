@@ -183,6 +183,7 @@ function Home() {
         .then(resJSON => {
           setTeamInfo(resJSON);
           setLoading(false);
+          
         })
         .catch(error => {
           console.error('Error fetching data:', error);
