@@ -63,10 +63,12 @@ app.get("/api/hello", (req, res) => {
     var query = "SELECT * FROM monitoring_redefined.matchups;";
     db.query(query, (err, results) => {
         if (err) {
-        console.error("Database query error:", err);
-        res.status(500).json({ error: "Database error" });
+            console.error("Database query error:", err);
+            res.set({"Access-Control-Allow-Origin": "*"})
+            res.status(500).json({ error: "Database error" });
         }   else {
-        res.json(results);
+            res.set({"Access-Control-Allow-Origin": "*"})
+            res.json(results);
         }
     });
 });
