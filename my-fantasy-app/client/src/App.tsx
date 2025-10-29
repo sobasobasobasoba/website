@@ -280,7 +280,7 @@ function TeamsList() {
           {TEAMS.map((team) => (
             <li key={team.id} className="flex items-center justify-between p-3 border rounded">
               <div className="flex items-center gap-3">
-		            <img class="h-48 w-96 object-contain drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)]" src={team?.logo}/>
+		            <img className="h-48 w-96 object-contain drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)]" src={team?.logo}/>
                 <div>
                   <div className="font-semibold">{team.name}</div>
                   <div className="text-sm text-gray-600">Owner: {team.owner}</div>
@@ -325,10 +325,10 @@ function TeamPage() {
           }
 
 
-          let yearRecords: Record<number, RecordEntry>={};
-          let vsRecords: Record<number, RecordEntry>={};
-          let totalRecord: Record<number, RecordEntry>={wins: 0, losses:0};
-          let playoffRecord: Record<number, RecordEntry>={wins: 0, losses: 0};
+          let yearRecords={};
+          let vsRecords={};
+          let totalRecord={wins: 0, losses:0};
+          let playoffRecord={wins: 0, losses: 0};
           for (let i = 0; i < resJSON.length; i++){
 
          
