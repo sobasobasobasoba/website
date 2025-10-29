@@ -402,12 +402,12 @@ function TeamPage() {
           </div>
         </div>
 
-        <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+        <div className="relative flex justify-center gap-4 p-4 flex-col w-full h-full text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
           <h3 className="font-semibold">Championships</h3>
           {team.championships.map((c) => {
              console.log(c);
                 return (
-                  <img className="h-36 w-36" src={c['banner']}/>
+                  <img className="w-1/2 rounded-lg object-cover" src={c['banner']}/>
                 );
               })}
 
