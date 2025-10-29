@@ -25,7 +25,7 @@ app.get("/api/matchups", (req, res) => {
 
     var query = "SELECT * FROM monitoring_redefined.matchups;";
     res.set({"Access-Control-Allow-Origin": "*"});
-    
+
     db.query(query, (err, results) => {
         if (err) {
             console.error("Database query error:", err);
@@ -71,6 +71,9 @@ app.get("/api/records/matchup", (req, res) => {
 
     var blowoutQuery = "SELECT *, winningTeamPoints - losingTeamPoints AS point_diff FROM monitoring_redefined.matchups ORDER BY point_diff DESC LIMIT 10;";
     var closestQuery = "SELECT *, winningTeamPoints - losingTeamPoints AS point_diff FROM monitoring_redefined.matchups ORDER BY point_diff ASC LIMIT 10;";
+    var hightestQuery = "SELECT *, winningTeamPoints + losingTeamPoints AS point_total FROM monitoring_redefined.matchups ORDER BY point_diff DESC LIMIT 10;"
+    var lowestQuery = "SELECT *, winningTeamPoints + losingTeamPoints AS point_total FROM monitoring_redefined.matchups ORDER BY point_diff ASC LIMIT 10;"
+    
     let queryOutput = {};
     res.set({"Access-Control-Allow-Origin": "*"});
 
@@ -87,6 +90,22 @@ app.get("/api/records/matchup", (req, res) => {
            db.query(closestQuery, {}, function(err, results) {
                if (err) return parallel_done(err);
                queryOutput.closest = results;
+               console.log(results);
+               parallel_done();
+           });
+       },
+       function(parallel_done) {
+           db.query(highestQuery, {}, function(err, results) {
+               if (err) return parallel_done(err);
+               queryOutput.highest = results;
+               console.log(results);
+               parallel_done();
+           });
+       },
+       function(parallel_done) {
+           db.query(lowestQuery, {}, function(err, results) {
+               if (err) return parallel_done(err);
+               queryOutput.lowest = results;
                console.log(results);
                parallel_done();
            });

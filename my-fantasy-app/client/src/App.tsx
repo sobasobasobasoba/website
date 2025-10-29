@@ -773,6 +773,248 @@ function RecordsMatchupPage() {
               })}
             </tbody>
           </table>
+          <h3 className="font-semibold">Highest Total Points Matchups</h3>
+          <table className="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Year
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Week
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Winning Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">                     
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Losing Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">                     
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Winning Team's Score
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Losing Team's Score
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Point Total
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(matchupInfo.highest).map(([m]) => {
+                
+                let cm = matchupInfo.highest[m];
+                const winningTeam = TEAMS.find((t) => t.id === cm.winningTeam);
+                const losingTeam = TEAMS.find((t) => t.id === cm.losingTeam);
+                return (
+                  <tr key={m + 1} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-18 max-w-18">
+                        <p className="block text-sm text-slate-800">
+                          {cm.year}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {cm.week}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {winningTeam.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {losingTeam.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {cm.winningTeamPoints}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {cm.losingTeamPoints}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {cm.point_total}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <h3 className="font-semibold">Lowest Total Points Matchups</h3>
+          <table className="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Year
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Week
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Winning Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">                     
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Losing Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">                     
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Winning Team's Score
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Losing Team's Score
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Point Total
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(matchupInfo.lowest).map(([m]) => {
+                
+                let cm = matchupInfo.lowest[m];
+                const winningTeam = TEAMS.find((t) => t.id === cm.winningTeam);
+                const losingTeam = TEAMS.find((t) => t.id === cm.losingTeam);
+                return (
+                  <tr key={m + 1} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-18 max-w-18">
+                        <p className="block text-sm text-slate-800">
+                          {cm.year}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {cm.week}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {winningTeam.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {losingTeam.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {cm.winningTeamPoints}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {cm.losingTeamPoints}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {cm.point_total}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
     </main>
   );
