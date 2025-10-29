@@ -574,7 +574,7 @@ function RecordsMatchupPage() {
             </thead>
             <tbody>
               {Object.entries(matchupInfo.blowout).map(([m]) => {
-                
+                console.log(m);
                 return (
                   <tr key={m.pointDiff} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
