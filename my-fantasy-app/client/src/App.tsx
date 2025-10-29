@@ -212,7 +212,7 @@ function Home() {
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://184.72.214.123:5000/api/hello")
+      fetch("http://184.72.214.123:5000/api/matchups")
         .then(response=> response.json())
         .then(resJSON => {
           console.log(resJSON);
@@ -500,9 +500,37 @@ function TeamPage() {
 }
 
 function RecordsMatchupPage() {
+
+  const [matchupInfo, setMatchupInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchTeamInfo() {
+      fetch("http://184.72.214.123:5000/api/records/matchup")
+        .then(response=> response.json())
+        .then(resJSON => {
+          
+          
+
+          setMatchupInfo(resJSON);
+          setLoading(false);
+
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          setLoading(false);
+        })
+
+    }
+    fetchTeamInfo();
+  }, []);
+
+  if (loading) return <main className="p-6 text-center">Loading team info...</main>;
+
   return (
     <main className="container mx-auto p-6">
       <div className="bg-white rounded-2xl p-6 shadow-md">
+        <p className="text-black">{JSON.stringify(matchupInfo)}</p>
         <h2 className="text-xl font-semibold mb-4">Teams</h2>
         <ul className="space-y-3">
           {TEAMS.map((team) => (

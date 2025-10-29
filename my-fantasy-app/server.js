@@ -59,7 +59,7 @@ db.connect((err) => {
 });
 
 // simple GET endpoint
-app.get("/api/hello", (req, res) => {
+app.get("/api/matchups", (req, res) => {
     var query = "SELECT * FROM monitoring_redefined.matchups;";
     db.query(query, (err, results) => {
         if (err) {
@@ -95,6 +95,37 @@ app.get("/api/team", (req, res) => {
             }
         });
     }
+
+});
+
+app.get("/api/records/matchup", (req, res) => {
+    var blowoutQuery = "SELECT *, winningTeamPoints - losingTeamPoints AS point_diff FROM monitoring_redefined.matchups ORDER BY point_diff DESC LIMIT 10;";
+    var closestQuery = "SELECT *, winningTeamPoints - losingTeamPoints AS point_diff FROM monitoring_redefined.matchups ORDER BY point_diff ASC LIMIT 10;";
+    let queryOutput = {};
+    db.query(blowoutQuery, (err, results) => {
+        if (err) {
+            console.error("Database query error:", err);
+            res.set({"Access-Control-Allow-Origin": "*"})
+            res.status(500).json({ error: "Database error" });
+        }   else {
+            queryOutput["blowout"] = results;
+            //res.set({"Access-Control-Allow-Origin": "*"})
+            //res.json(results);
+        }
+    });
+    db.query(closestQuery, (err, results) => {
+        if (err) {
+            console.error("Database query error:", err);
+            res.set({"Access-Control-Allow-Origin": "*"})
+            res.status(500).json({ error: "Database error" });
+        }   else {
+            queryOutput["closest"] = results;
+            //res.set({"Access-Control-Allow-Origin": "*"})
+            //res.json(results);
+        }
+    });
+    res.set({"Access-Control-Allow-Origin": "*"});
+    res.json(queryOutput);
 
 });
 
