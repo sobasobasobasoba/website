@@ -135,7 +135,7 @@ app.get("/api/records/matchup", (req, res) => {
 
     async.parallel([
        function(parallel_done) {
-           pool.query(blowoutQuery, {}, function(err, results) {
+           db.query(blowoutQuery, {}, function(err, results) {
                if (err) return parallel_done(err);
                queryOutput.blowout = results;
                console.log(results);
@@ -143,7 +143,7 @@ app.get("/api/records/matchup", (req, res) => {
            });
        },
        function(parallel_done) {
-           pool.query(closestQuery, {}, function(err, results) {
+           db.query(closestQuery, {}, function(err, results) {
                if (err) return parallel_done(err);
                queryOutput.closest = results;
                console.log(results);
@@ -152,7 +152,6 @@ app.get("/api/records/matchup", (req, res) => {
        }
     ], function(err) {
          if (err) console.log(err);
-         pool.end();
          console.log("parallel_done");
          console.log(queryOutput);
          res.set({"Access-Control-Allow-Origin": "*"});
