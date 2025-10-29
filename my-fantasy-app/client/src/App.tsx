@@ -301,7 +301,7 @@ function TeamPage() {
               }
               //adding vsRecords data
               console.log("Before adding vsRecord data in loss");
-              if(resJSON.winningTeam in vsRecords){
+              if(resJSON[i].winningTeam in vsRecords){
                 console.log("top loss vsRec");
                 vsRecords[resJSON[i].winningTeam]["losses"]++;
               } else {
