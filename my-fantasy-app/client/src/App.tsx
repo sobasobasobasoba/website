@@ -574,55 +574,55 @@ function RecordsMatchupPage() {
             </thead>
             <tbody>
               {Object.entries(matchupInfo.blowout).map(([m]) => {
-                console.log(m);
+                let cm = matchupInfo.blowout[m];
                 return (
-                  <tr key={m.pointDiff} className="hover:bg-slate-50">
+                  <tr key={m + 1} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-18 max-w-18">
                         <p className="block text-sm text-slate-800">
-                          {m.year}
+                          {cm.year}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {m.week}
+                          {cm.week}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {m.winningTeam}
+                          {cm.winningTeam}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {m.losingTeam}
+                          {cm.losingTeam}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {m.winningTeamScore}
+                          {cm.winningTeamScore}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {m.losingTeamScore}
+                          {cm.losingTeamScore}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {m.pointDiff}
+                          {cm.pointDiff}
                         </p>
                       </div>
                     </td>
