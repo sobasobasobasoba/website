@@ -257,7 +257,7 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => 
           (
-            <Link key={t.id} to={`/team/${t.id}`} className={`p-4 border rounded hover:shadow bg-${t.active ? "onyx" : "gray"}-400`}>
+            <Link key={t.id} to={`/team/${t.id}`} className={`p-4 border rounded hover:shadow bg-${t.active ? "onyx" : "gray"}-950`}>
               <img className="h-48 w-96 object-contain drop-shadow-xl/50" src={t.logo}/>
               <div className="font-bold">{t.name}</div>
               <div className="text-sm text-gray-600">Owner: {t.owner}</div>
