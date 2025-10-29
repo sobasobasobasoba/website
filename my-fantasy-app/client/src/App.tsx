@@ -402,14 +402,18 @@ function TeamPage() {
           </div>
         </div>
 
-        <div className="relative flex justify-center gap-4 p-4 flex-col w-full h-full text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+        <div className="relative flex flex-col justify-center gap-4 p-4 w-full h-full text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
           <h3 className="font-semibold">Championships</h3>
-          {team.championships.map((c) => {
-             console.log(c);
-                return (
-                  <img className="w-1/2 rounded-lg object-cover" src={c['banner']}/>
-                );
-              })}
+          <div className="flex flex-wrap gap-4 justify-center">
+          {team.championships.map((c, i) => (
+            <img 
+              key={i}
+              className="w-1/3 rounded-lg object-cover"
+              src={c.banner}
+              alt={`Championship ${i+1}`}
+            />
+          ))}
+          </div>
 
         </div>
 
