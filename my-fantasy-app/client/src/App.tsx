@@ -194,7 +194,7 @@ const TEAMS = [
 
 function Header() {
   return (
-    <header className="bg-gradient-to-r from-indigo-500 to-lime-600 text-white p-4 shadow-lg">
+    <header className="bg-gradient-to-r from-emerald-600 to-white text-white p-4 shadow-lg">
       <div className="container mx-auto flex items-center justify-between">
         <h1 className="text-2xl font-bold">Monitoring Redefined</h1>
         <nav className="space-x-3">
