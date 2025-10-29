@@ -108,6 +108,7 @@ app.get("/api/records/matchup", (req, res) => {
             res.set({"Access-Control-Allow-Origin": "*"})
             res.status(500).json({ error: "Database error" });
         }   else {
+            console.log(results);
             queryOutput["blowout"] = results;
             //res.set({"Access-Control-Allow-Origin": "*"})
             //res.json(results);
@@ -119,11 +120,13 @@ app.get("/api/records/matchup", (req, res) => {
             res.set({"Access-Control-Allow-Origin": "*"})
             res.status(500).json({ error: "Database error" });
         }   else {
+            console.log(results);
             queryOutput["closest"] = results;
             //res.set({"Access-Control-Allow-Origin": "*"})
             //res.json(results);
         }
     });
+    console.log(queryOutput);
     res.set({"Access-Control-Allow-Origin": "*"});
     res.json(queryOutput);
 

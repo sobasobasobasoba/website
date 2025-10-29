@@ -512,6 +512,7 @@ function RecordsMatchupPage() {
           
           
 
+          console.log(resJSON);
           setMatchupInfo(resJSON);
           setLoading(false);
 
