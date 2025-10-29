@@ -574,7 +574,10 @@ function RecordsMatchupPage() {
             </thead>
             <tbody>
               {Object.entries(matchupInfo.blowout).map(([m]) => {
+                
                 let cm = matchupInfo.blowout[m];
+                const winningTeam = TEAMS.find((t) => t.id === cm.winningTeam);
+                const losingTeam = TEAMS.find((t) => t.id === cm.losingTeam);
                 return (
                   <tr key={m + 1} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
@@ -593,6 +596,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-16 max-w-16 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
                         <p className="block text-sm text-slate-800">
                           {cm.winningTeam}
                         </p>
@@ -600,6 +604,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-16 max-w-16 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
                         <p className="block text-sm text-slate-800">
                           {cm.losingTeam}
                         </p>
