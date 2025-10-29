@@ -303,6 +303,11 @@ function TeamPage() {
                 vsRecords[resJSON[i].winningTeam] = {wins: 0, losses: 1}
               }
             }
+            console.log("After Adding Records");
+            console.log(team.id);
+            console.log(resJSON[i].winningTeam);
+            console.log(resJSON[i].losingTeam);
+            console.log(vsRecords);
 
           }
           setTeamInfo({yearRecords: yearRecords, vsRecords: vsRecords});
