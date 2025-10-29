@@ -405,9 +405,9 @@ function TeamPage() {
         <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
           <h3 className="font-semibold">Championships</h3>
           {Object.entries(team.championships).map((c) => {
-                
+             console.log(c);
                 return (
-                  <div><img className="h-36 w-36" src={team.championships[c]['banner']}/></div>
+                  <div><img className="h-36 w-36" src={c['banner']}/></div>
                 );
               })}
 
