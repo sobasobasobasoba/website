@@ -552,17 +552,17 @@ function RecordsMatchupPage() {
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
                   <p className="block text-sm font-normal leading-none text-slate-500">
-                    Winning Team
-                  </p>
-                </th>
-                <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p className="block text-sm font-normal leading-none text-slate-500">
-                    Winning Team
+                     
                   </p>
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
                   <p className="block text-sm font-normal leading-none text-slate-500">
                     Losing Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                     
                   </p>
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
