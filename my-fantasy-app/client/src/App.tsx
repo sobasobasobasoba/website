@@ -280,7 +280,7 @@ function TeamsList() {
           {TEAMS.map((team) => (
             <li key={team.id} className="flex items-center justify-between p-3 border rounded">
               <div className="flex items-center gap-3">
-		            <img class="h-48 w-96 object-contain drop-shadow-xl/50" src={team.logo}/>
+		            <img class="h-48 w-96 object-contain drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)]" src={team.logo}/>
                 <div>
                   <div className="font-semibold">{team.name}</div>
                   <div className="text-sm text-gray-600">Owner: {team.owner}</div>
@@ -398,7 +398,7 @@ function TeamPage() {
           ))
         } */}
         <div className="flex items-center gap-4">
-          <div><img className="h-48 w-96 object-contain" src={team.logo}/></div>
+          <div><img className="h-48 w-96 object-contain drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)]" src={team.logo}/></div>
           <div>
             <h2 className="text-2xl font-bold">{team.name}</h2>
             <div className="text-sm text-gray-600">Owner: {team.owner}</div>
@@ -479,7 +479,7 @@ function TeamPage() {
                   <tr key={oppId} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-18 max-w-18">
-                        <img className="object-scale-down max-h-16 max-w-16 drop-shadow-xl/50 inline" src={opp.logo}/>
+                        <img className="object-scale-down max-h-16 max-w-16 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={opp.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
@@ -629,7 +629,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={winningTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
@@ -641,7 +641,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={losingTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
@@ -750,7 +750,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={winningTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
@@ -762,7 +762,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={losingTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
@@ -871,7 +871,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={winningTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
@@ -883,7 +883,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={losingTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
@@ -992,7 +992,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={winningTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
@@ -1004,7 +1004,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)] inline" src={losingTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
