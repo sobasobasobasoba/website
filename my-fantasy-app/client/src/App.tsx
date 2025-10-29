@@ -325,10 +325,10 @@ function TeamPage() {
           }
 
 
-          let yearRecords: Record<number, RecordEntry>= {};
-          let vsRecords: Record<number, RecordEntry>=  = {};
-          let totalRecord: Record<number, RecordEntry>=  = {wins: 0, losses:0};
-          let playoffRecord: Record<number, RecordEntry>=  = {wins: 0, losses: 0};
+          let yearRecords: Record<number, RecordEntry>{};
+          let vsRecords: Record<number, RecordEntry>={};
+          let totalRecord: Record<number, RecordEntry>={wins: 0, losses:0};
+          let playoffRecord: Record<number, RecordEntry>={wins: 0, losses: 0};
           for (let i = 0; i < resJSON.length; i++){
 
          
