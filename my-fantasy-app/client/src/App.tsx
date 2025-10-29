@@ -625,7 +625,7 @@ function RecordsMatchupPage() {
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
-                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_5x_rgba(0,0,0,0.25)] inline" src={winningTeam.logo}/>
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_5px_rgba(0,0,0,0.25)] inline" src={winningTeam.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
