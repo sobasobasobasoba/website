@@ -257,11 +257,13 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => 
           (
-            <Link key={t.id} to={`/team/${t.id}`} className={`p-4 border rounded hover:shadow ${t.active ? "" : "bg-(image:https://t4.ftcdn.net/jpg/14/69/98/81/360_F_1469988116_ETxsjFnEMbZ9Fh9a8K969h8jZKPGE6Q2.jpg)"}`}>
+            <div className={`p-4 border rounded hover:shadow ${t.active ? "" : "bg-gray-700"}`}>
+            <Link key={t.id} to={`/team/${t.id}`} >
               <img className="h-48 w-96 object-contain drop-shadow-xl/50" src={t.logo}/>
               <div className="font-bold">{t.name}</div>
               <div className="text-sm text-gray-600">Owner: {t.owner}</div>
             </Link>
+            </div>
           ))}
         </div>
       </div>
