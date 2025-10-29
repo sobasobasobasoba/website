@@ -237,7 +237,7 @@ function AllMatchups() {
     <main className="container mx-auto p-6 bg-white">
       <div className="rounded-2xl p-6 shadow-md">
         {
-          teamInfo?.map((m: {year: number; banner: string}) => (
+          teamInfo?.map((m) => (
             <div className="font-bold text-black">Week {m.week}, {m.year} - {m.winningTeam} beat {m.losingTeam} with a score of {m.winningTeamPoints} to {m.losingTeamPoints}</div>
           ))
         }
