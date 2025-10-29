@@ -386,7 +386,7 @@ function TeamPage() {
             <thead>
               <tr>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p class="block text-sm font-normal leading-none text-slate-500">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
                     Season
                   </p>
                 </th>
