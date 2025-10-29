@@ -386,7 +386,7 @@ function TeamPage() {
           <div>
             <h2 className="text-2xl font-bold">{team.name}</h2>
             <div className="text-sm text-gray-600">Owner: {team.owner}</div>
-            <div className="text-sm text-gray-600 mt-1">All-time (shown seasons): {teamInfo.totalRecord.wins}–{teamInfo.totalRecord.losses} ({teamInfo.playoffRecord.wins}-{teamInfo.playoffRecord.losses})</div>
+            <div className="text-sm text-gray-600 mt-1">All-time (Playoffs): {teamInfo.totalRecord.wins}–{teamInfo.totalRecord.losses} ({teamInfo.playoffRecord.wins}-{teamInfo.playoffRecord.losses})</div>
           </div>
         </div>
 
