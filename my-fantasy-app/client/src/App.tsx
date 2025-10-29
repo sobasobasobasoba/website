@@ -351,7 +351,7 @@ function TeamPage() {
             }
 
           }
-          setTeamInfo({yearRecords: yearRecords, vsRecords: vsRecords, totalRecord: totalRecord});
+          setTeamInfo({yearRecords: yearRecords, vsRecords: vsRecords, totalRecord: totalRecord, playoffRecord: playoffRecord});
           setLoading(false);
         })
         .catch(error => {
