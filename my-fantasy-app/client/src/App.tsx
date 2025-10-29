@@ -198,6 +198,7 @@ function Header() {
         <nav className="space-x-3">
           <Link to="/" className="px-3 py-2 rounded hover:bg-indigo-500/70">Home</Link>
           <Link to="/teams" className="px-3 py-2 rounded hover:bg-indigo-500/70">Teams</Link>
+          <Link to="/records/matchups" className="px-3 py-2 rounded hover:bg-indigo-500/70">Matchup Records</Link>
         </nav>
       </div>
     </header>
@@ -498,6 +499,32 @@ function TeamPage() {
   );
 }
 
+function RecordsMatchupPage() {
+  return (
+    <main className="container mx-auto p-6">
+      <div className="bg-white rounded-2xl p-6 shadow-md">
+        <h2 className="text-xl font-semibold mb-4">Teams</h2>
+        <ul className="space-y-3">
+          {TEAMS.map((team) => (
+            <li key={team.id} className="flex items-center justify-between p-3 border rounded">
+              <div className="flex items-center gap-3">
+		            <img class="h-48 w-96 object-contain drop-shadow-xl/50" src={team.logo}/>
+                <div>
+                  <div className="font-semibold">{team.name}</div>
+                  <div className="text-sm text-gray-600">Owner: {team.owner}</div>
+                </div>
+              </div>
+              <div>
+                <Link to={`/team/${team.id}`} className="px-3 py-1 rounded bg-indigo-600 text-white">View</Link>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </main>
+  );
+}
+
 export default function App() {
   return (
     <Router>
@@ -507,6 +534,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/teams" element={<TeamsList />} />
           <Route path="/team/:id" element={<TeamPage />} />
+          <Route path="/records/matchups" element={<RecordsMatchupPage />} />
           <Route path="*" element={<main className="container mx-auto p-6"><div className="bg-white p-6 rounded">404 — Not Found</div></main>} />
         </Routes>
         <footer className="text-center p-4 text-sm text-gray-500">Monitoring Redefined</footer>
