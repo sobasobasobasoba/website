@@ -196,9 +196,9 @@ function Header() {
       <div className="container mx-auto flex items-center justify-between">
         <h1 className="text-2xl font-bold">Fantasy League — Historical Records</h1>
         <nav className="space-x-3">
-          <Link to="/" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-white">Home</Link>
-          <Link to="/teams" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-white">Teams</Link>
-          <Link to="/records/matchups" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-white">Matchup Records</Link>
+          <Link to="/" className="px-3 py-2 rounded hover:bg-indigo-500/70"><p className="text-white">Home</p></Link>
+          <Link to="/teams" className="px-3 py-2 rounded hover:bg-indigo-500/70"><p className="text-white">Teams</p></Link>
+          <Link to="/records/matchups" className="px-3 py-2 rounded hover:bg-indigo-500/70"><p className="text-white">Matchup Records</p></Link>
         </nav>
       </div>
     </header>
