@@ -438,7 +438,8 @@ function TeamPage() {
               </tr>
             </thead>
             <tbody>
-              {Object.entries(teamInfo.yearRecords).map(([year, rec]) => {
+              {
+              Object.entries(teamInfo.yearRecords as Record<string, { wins: number; losses: number }>).map(([year, rec]) => {
                 return (
                 <tr key={year} className="hover:bg-slate-50">
                   <td className="p-4 border-b border-slate-200">
@@ -482,7 +483,7 @@ function TeamPage() {
               </tr>
             </thead>
             <tbody>
-              {Object.entries(teamInfo.vsRecords).map(([oppId, rec]) => {
+              {Object.entries(teamInfo.vsRecords as Record<string, { wins: number; losses: number }>).map(([oppId, rec]) => {
                 const opp = TEAMS.find((t) => t.id === oppId);
                 return (
                   <tr key={oppId} className="hover:bg-slate-50">
