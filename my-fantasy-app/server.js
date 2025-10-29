@@ -71,8 +71,8 @@ app.get("/api/records/matchup", (req, res) => {
 
     var blowoutQuery = "SELECT *, winningTeamPoints - losingTeamPoints AS point_diff FROM monitoring_redefined.matchups ORDER BY point_diff DESC LIMIT 10;";
     var closestQuery = "SELECT *, winningTeamPoints - losingTeamPoints AS point_diff FROM monitoring_redefined.matchups ORDER BY point_diff ASC LIMIT 10;";
-    var highestQuery = "SELECT *, winningTeamPoints + losingTeamPoints AS point_total FROM monitoring_redefined.matchups ORDER BY point_diff DESC LIMIT 10;"
-    var lowestQuery = "SELECT *, winningTeamPoints + losingTeamPoints AS point_total FROM monitoring_redefined.matchups ORDER BY point_diff ASC LIMIT 10;"
+    var highestQuery = "SELECT *, winningTeamPoints + losingTeamPoints AS point_total FROM monitoring_redefined.matchups ORDER BY point_total DESC LIMIT 10;"
+    var lowestQuery = "SELECT *, winningTeamPoints + losingTeamPoints AS point_total FROM monitoring_redefined.matchups ORDER BY point_total ASC LIMIT 10;"
     
     let queryOutput = {};
     res.set({"Access-Control-Allow-Origin": "*"});
