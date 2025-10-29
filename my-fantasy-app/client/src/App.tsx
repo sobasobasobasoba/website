@@ -306,11 +306,16 @@ function TeamPage() {
           let yearRecords = {};
           let vsRecords = {};
           let totalRecord = {wins: 0, losses:0};
+          let playoffRecord = {wins: 0, losses: 0};
           for (let i = 0; i < resJSON.length; i++){
          
             if (resJSON[i].winningTeam == team.id){
               //adding totalRecord
               totalRecord['wins']++;
+
+              if(resJSON[i].isPlayoffs){
+                playoffRecord.wins++;
+              }
 
               //adding yearRecords data
               if(resJSON[i].year in yearRecords){
@@ -327,6 +332,10 @@ function TeamPage() {
             } else {
               //adding totalRecord
               totalRecord['losses']++;
+
+              if(resJSON[i].isPlayoffs){
+                playoffRecord.losses++;
+              }
               //adding yearRecords data
               if(resJSON[i].year in yearRecords){
                 yearRecords[resJSON[i].year]["losses"]++;
@@ -377,7 +386,7 @@ function TeamPage() {
           <div>
             <h2 className="text-2xl font-bold">{team.name}</h2>
             <div className="text-sm text-gray-600">Owner: {team.owner}</div>
-            <div className="text-sm text-gray-600 mt-1">All-time (shown seasons): {teamInfo.totalRecord.wins}–{teamInfo.totalRecord.losses}</div>
+            <div className="text-sm text-gray-600 mt-1">All-time (shown seasons): {teamInfo.totalRecord.wins}–{teamInfo.totalRecord.losses} ({teamInfo.playoffRecord.wins}-{teamInfo.playoffRecord.losses})</div>
           </div>
         </div>
 
