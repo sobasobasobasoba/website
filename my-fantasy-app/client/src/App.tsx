@@ -304,10 +304,9 @@ function TeamPage() {
               }
             }
             console.log("After Adding Records");
-            console.log(team.id);
             console.log(resJSON[i].winningTeam);
             console.log(resJSON[i].losingTeam);
-            console.log(vsRecords);
+            console.log(JSON.stringify(vsRecords));
 
           }
           setTeamInfo({yearRecords: yearRecords, vsRecords: vsRecords});
