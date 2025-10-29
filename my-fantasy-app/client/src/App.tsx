@@ -576,7 +576,7 @@ function RecordsMatchupPage() {
               {Object.entries(matchupInfo.blowout).map(([m]) => {
                 
                 return (
-                  <tr key={oppId} className="hover:bg-slate-50">
+                  <tr key={m.pointDiff} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-18 max-w-18">
                         <p className="block text-sm text-slate-800">
