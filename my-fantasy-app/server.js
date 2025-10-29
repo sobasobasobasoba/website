@@ -63,15 +63,15 @@ var db = mysql.createPool({
 
 // simple GET endpoint
 app.get("/api/matchups", (req, res) => {
-    db.connect((err) => {
-        if (err) {
-            console.error("Error connecting to MySQL:", err);
-            res.set({"Access-Control-Allow-Origin": "*"});
-            res.status(500).json({error: "Can't connect to database"});
-        } else {
-            console.log("Connected to MySQL database");
-        }
-    });
+    // db.connect((err) => {
+    //     if (err) {
+    //         console.error("Error connecting to MySQL:", err);
+    //         res.set({"Access-Control-Allow-Origin": "*"});
+    //         res.status(500).json({error: "Can't connect to database"});
+    //     } else {
+    //         console.log("Connected to MySQL database");
+    //     }
+    // });
     var query = "SELECT * FROM monitoring_redefined.matchups;";
     db.query(query, (err, results) => {
         if (err) {
@@ -87,15 +87,15 @@ app.get("/api/matchups", (req, res) => {
 
 // return all matchups from this team
 app.get("/api/team", (req, res) => {
-    db.connect((err) => {
-        if (err) {
-            console.error("Error connecting to MySQL:", err);
-            res.set({"Access-Control-Allow-Origin": "*"});
-            res.status(500).json({error: "Can't connect to database"});
-        } else {
-            console.log("Connected to MySQL database");
-        }
-    });
+    // db.connect((err) => {
+    //     if (err) {
+    //         console.error("Error connecting to MySQL:", err);
+    //         res.set({"Access-Control-Allow-Origin": "*"});
+    //         res.status(500).json({error: "Can't connect to database"});
+    //     } else {
+    //         console.log("Connected to MySQL database");
+    //     }
+    // });
     var team = req.query.team;
     console.log("TEAM");
     console.log(team);
@@ -120,15 +120,15 @@ app.get("/api/team", (req, res) => {
 });
 
 app.get("/api/records/matchup", (req, res) => {
-    db.connect((err) => {
-        if (err) {
-            console.error("Error connecting to MySQL:", err);
-            res.set({"Access-Control-Allow-Origin": "*"});
-            res.status(500).json({error: "Can't connect to database"});
-        } else {
-            console.log("Connected to MySQL database");
-        }
-    });
+    // db.connect((err) => {
+    //     if (err) {
+    //         console.error("Error connecting to MySQL:", err);
+    //         res.set({"Access-Control-Allow-Origin": "*"});
+    //         res.status(500).json({error: "Can't connect to database"});
+    //     } else {
+    //         console.log("Connected to MySQL database");
+    //     }
+    // });
     var blowoutQuery = "SELECT *, winningTeamPoints - losingTeamPoints AS point_diff FROM monitoring_redefined.matchups ORDER BY point_diff DESC LIMIT 10;";
     var closestQuery = "SELECT *, winningTeamPoints - losingTeamPoints AS point_diff FROM monitoring_redefined.matchups ORDER BY point_diff ASC LIMIT 10;";
     let queryOutput = {};
