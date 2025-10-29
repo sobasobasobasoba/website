@@ -380,10 +380,6 @@ function TeamPage() {
   }, []);
 
 
-  const fake_team = fake_teams.find((t) => t.id === id);
-
-
-
   const totalWins = team.history.reduce((s, r) => s + r.wins, 0);
   const totalLosses = team.history.reduce((s, r) => s + r.losses, 0);
 
