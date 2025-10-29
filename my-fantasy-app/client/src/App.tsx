@@ -284,9 +284,12 @@ function TeamPage() {
                 yearRecords[resJSON[i].year] = {wins: 1, losses: 0};
               }
               //adding vsRecords data
+              console.log("Before adding vsRecord in win");
               if(resJSON[i].losingTeam in vsRecords){
+                console.log("top win vsRec");
                 vsRecords[resJSON[i].losingTeam]["wins"] ++;
               } else {
+                console.log("bottom win vsRec");
                 vsRecords[resJSON[i].losingTeam] = {wins: 1, losses: 0}
               }
             } else {
@@ -297,9 +300,12 @@ function TeamPage() {
                 yearRecords[resJSON[i].year] = {wins: 0, losses: 1};
               }
               //adding vsRecords data
+              console.log("Before adding vsRecord data in loss");
               if(resJSON.winningTeam in vsRecords){
+                console.log("top loss vsRec");
                 vsRecords[resJSON[i].winningTeam]["losses"]++;
               } else {
+                console.log("bottom loss vsRec");
                 vsRecords[resJSON[i].winningTeam] = {wins: 0, losses: 1}
               }
             }
