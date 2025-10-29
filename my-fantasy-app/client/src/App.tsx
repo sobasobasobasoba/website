@@ -319,11 +319,6 @@ function TeamPage() {
       fetch("http://184.72.214.123:5000/api/team/?team=" + team?.id)
         .then(response=> response.json())
         .then(resJSON => {
-          interface RecordEntry {
-            wins: number;
-            losses: number;
-          }
-
 
           let yearRecords={};
           let vsRecords={};
@@ -385,10 +380,6 @@ function TeamPage() {
     }
     fetchTeamInfo();
   }, []);
-
-
-  const totalWins = team.history.reduce((s, r) => s + r.wins, 0);
-  const totalLosses = team.history.reduce((s, r) => s + r.losses, 0);
 
   if (loading) return <main className="p-6 text-center">Loading team info...</main>;
 
