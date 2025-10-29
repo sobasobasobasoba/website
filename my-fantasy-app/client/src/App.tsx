@@ -284,12 +284,9 @@ function TeamPage() {
                 yearRecords[resJSON[i].year] = {wins: 1, losses: 0};
               }
               //adding vsRecords data
-              console.log("Before adding vsRecord in win");
               if(resJSON[i].losingTeam in vsRecords){
-                console.log("top win vsRec");
                 vsRecords[resJSON[i].losingTeam]["wins"] ++;
               } else {
-                console.log("bottom win vsRec");
                 vsRecords[resJSON[i].losingTeam] = {wins: 1, losses: 0}
               }
             } else {
@@ -300,19 +297,12 @@ function TeamPage() {
                 yearRecords[resJSON[i].year] = {wins: 0, losses: 1};
               }
               //adding vsRecords data
-              console.log("Before adding vsRecord data in loss");
               if(resJSON[i].winningTeam in vsRecords){
-                console.log("top loss vsRec");
                 vsRecords[resJSON[i].winningTeam]["losses"]++;
               } else {
-                console.log("bottom loss vsRec");
                 vsRecords[resJSON[i].winningTeam] = {wins: 0, losses: 1}
               }
             }
-            console.log("After Adding Records");
-            console.log(resJSON[i].winningTeam);
-            console.log(resJSON[i].losingTeam);
-            console.log(JSON.stringify(vsRecords));
 
           }
           setTeamInfo({yearRecords: yearRecords, vsRecords: vsRecords});
@@ -427,7 +417,7 @@ function TeamPage() {
                   <tr key={oppId} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
                       <div class="max-h-18 max-w-18">
-                        <img class="object-scale-down drop-shadow-xl/50" src={opp.logo}/>
+                        <img class="object-scale-down max-h-16 max-w-16 drop-shadow-xl/50" src={opp.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
