@@ -194,9 +194,9 @@ const TEAMS = [
 
 function Header() {
   return (
-    <header className="bg-gradient-to-r from-indigo-600 to-indigo-400 text-white p-4 shadow-lg">
+    <header className="bg-gradient-to-r from-emerald-600 to-gray-400 text-white p-4 shadow-lg">
       <div className="container mx-auto flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Fantasy League — Historical Records</h1>
+        <h1 className="text-2xl font-bold">Monitoring Redefined</h1>
         <nav className="space-x-3">
           <Link to="/" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Home</Link>
           <Link to="/teams" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Teams</Link>
@@ -257,7 +257,7 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {TEAMS.map((t) => 
           (
-            <div className={`p-4 border rounded hover:shadow ${t.active ? "" : "bg-gray-700"}`}>
+            <div className={`p-4 border border-emerald-500 rounded hover:shadow ${t.active ? "" : "bg-gray-700"}`}>
             <Link key={t.id} to={`/team/${t.id}`} >
               <img className="h-48 w-96 object-contain drop-shadow-xl/50" src={t.logo}/>
               <div className="font-bold">{t.name}</div>
