@@ -530,26 +530,108 @@ function RecordsMatchupPage() {
 
   return (
     <main className="container mx-auto p-6">
-      <div className="bg-white rounded-2xl p-6 shadow-md">
-        <p className="text-black">{JSON.stringify(matchupInfo)}</p>
-        <h2 className="text-xl font-semibold mb-4">Teams</h2>
-        <ul className="space-y-3">
-          {TEAMS.map((team) => (
-            <li key={team.id} className="flex items-center justify-between p-3 border rounded">
-              <div className="flex items-center gap-3">
-		            <img class="h-48 w-96 object-contain drop-shadow-xl/50" src={team.logo}/>
-                <div>
-                  <div className="font-semibold">{team.name}</div>
-                  <div className="text-sm text-gray-600">Owner: {team.owner}</div>
-                </div>
-              </div>
-              <div>
-                <Link to={`/team/${team.id}`} className="px-3 py-1 rounded bg-indigo-600 text-white">View</Link>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+          <h3 className="font-semibold">Biggest Blowouts</h3>
+          <table className="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Year
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Week
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Winning Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Losing Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Winning Team's Score
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Losing Team's Score
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Point Differential
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(matchupInfo.blowout).map(([m]) => {
+                
+                return (
+                  <tr key={oppId} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-18 max-w-18">
+                        <p className="block text-sm text-slate-800">
+                          {m.year}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {m.week}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {m.winningTeam}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {m.losingTeam}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {m.winningTeamScore}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {m.losingTeamScore}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {m.pointDiff}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
     </main>
   );
 }
