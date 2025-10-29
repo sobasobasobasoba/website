@@ -408,7 +408,7 @@ function TeamPage() {
           {team.championships.map((c, i) => (
             <img 
               key={i}
-              className="w-1/3 rounded-lg object-cover"
+              className="w-1/5 rounded-lg object-cover"
               src={c.banner}
               alt={`Championship ${i+1}`}
             />
