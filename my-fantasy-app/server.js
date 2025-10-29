@@ -23,7 +23,7 @@ var db = mysql.createPool({
 // simple GET endpoint
 app.get("/api/matchups", (req, res) => {
 
-    var query = "SELECT * FROM monitoring_redefined.matchups ORDER BY week,year;";
+    var query = "SELECT * FROM monitoring_redefined.matchups ORDER BY year,week;";
     res.set({"Access-Control-Allow-Origin": "*"});
 
     db.query(query, (err, results) => {
