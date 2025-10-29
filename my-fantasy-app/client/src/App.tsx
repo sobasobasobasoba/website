@@ -5,7 +5,7 @@
 // - Uses React Router for navigation. Install: react, react-dom, react-router-dom, tailwindcss configured.
 // - You can adapt components to React Native Web by replacing DOM elements with react-native primitives.
 
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 
 // Example dataset: each team has historical seasons with records
@@ -237,7 +237,7 @@ function AllMatchups() {
     <main className="container mx-auto p-6 bg-white">
       <div className="rounded-2xl p-6 shadow-md">
         {
-          teamInfo.map((m) => (
+          teamInfo?.map((m: {year: number; banner: string}) => (
             <div className="font-bold text-black">Week {m.week}, {m.year} - {m.winningTeam} beat {m.losingTeam} with a score of {m.winningTeamPoints} to {m.losingTeamPoints}</div>
           ))
         }
@@ -280,7 +280,7 @@ function TeamsList() {
           {TEAMS.map((team) => (
             <li key={team.id} className="flex items-center justify-between p-3 border rounded">
               <div className="flex items-center gap-3">
-		            <img class="h-48 w-96 object-contain drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)]" src={team.logo}/>
+		            <img class="h-48 w-96 object-contain drop-shadow-[0_0px_10px_rgba(0,0,0,0.25)]" src={team?.logo}/>
                 <div>
                   <div className="font-semibold">{team.name}</div>
                   <div className="text-sm text-gray-600">Owner: {team.owner}</div>
@@ -316,16 +316,23 @@ function TeamPage() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://184.72.214.123:5000/api/team/?team=" + team.id)
+      fetch("http://184.72.214.123:5000/api/team/?team=" + team?.id)
         .then(response=> response.json())
         .then(resJSON => {
-          let yearRecords = {};
-          let vsRecords = {};
-          let totalRecord = {wins: 0, losses:0};
-          let playoffRecord = {wins: 0, losses: 0};
+          interface RecordEntry {
+            wins: number;
+            losses: number;
+          }
+
+
+          let yearRecords: Record<number, RecordEntry>= {};
+          let vsRecords: Record<number, RecordEntry>=  = {};
+          let totalRecord: Record<number, RecordEntry>=  = {wins: 0, losses:0};
+          let playoffRecord: Record<number, RecordEntry>=  = {wins: 0, losses: 0};
           for (let i = 0; i < resJSON.length; i++){
+
          
-            if (resJSON[i].winningTeam == team.id){
+            if (resJSON[i].winningTeam == team?.id){
               //adding totalRecord
               totalRecord['wins']++;
 
