@@ -166,6 +166,28 @@ const TEAMS = [
       { season: 2023, wins: 7, losses: 6, ties: 0, place: 3 },
     ],
   },
+  {
+    id: "jonk",
+    name: "Recalcitrant Rookie",
+    owner: "Jonathan Kowalski",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/logo-jonk.png",
+    history: [
+      { season: 2021, wins: 8, losses: 5, ties: 0, place: 2 },
+      { season: 2022, wins: 10, losses: 3, ties: 0, place: 1 },
+      { season: 2023, wins: 7, losses: 6, ties: 0, place: 3 },
+    ],
+  },
+  {
+    id: "nick",
+    name: "Belichick's Bookie",
+    owner: "Nick Hurt",
+    logo: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/Logo-Nick.png",
+    history: [
+      { season: 2021, wins: 8, losses: 5, ties: 0, place: 2 },
+      { season: 2022, wins: 10, losses: 3, ties: 0, place: 1 },
+      { season: 2023, wins: 7, losses: 6, ties: 0, place: 3 },
+    ],
+  },
 ];
 
 function Header() {
