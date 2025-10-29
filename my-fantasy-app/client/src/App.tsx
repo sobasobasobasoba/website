@@ -552,6 +552,16 @@ function RecordsMatchupPage() {
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
                   <p className="block text-sm font-normal leading-none text-slate-500">
+                    Winning Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Winning Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
                     Losing Team
                   </p>
                 </th>
@@ -595,19 +605,27 @@ function RecordsMatchupPage() {
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <div className="max-h-24 overflow-y-auto flex">
+                      <div className="max-h-24 overflow-y-auto">
                         <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
-                        <div className="justify-center item-body text-sm text-slate-800">
-                          {winningTeam.name}
-                        </div>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <div className="max-h-24 overflow-y-auto flex">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {winningTeam.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
                         <img className="object-scale-down max-h-12 max-w-12 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
-                        <div className="justify-center item-body text-sm text-slate-800">
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
                           {losingTeam.name}
-                        </div>
+                        </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
