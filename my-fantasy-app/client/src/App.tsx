@@ -608,21 +608,21 @@ function RecordsMatchupPage() {
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {cm.winningTeamScore}
+                          {cm.winningTeamPoints}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {cm.losingTeamScore}
+                          {cm.losingTeamPoints}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
                       <div className="max-h-24 overflow-y-auto">
                         <p className="block text-sm text-slate-800">
-                          {cm.pointDiff}
+                          {cm.point_diff}
                         </p>
                       </div>
                     </td>
