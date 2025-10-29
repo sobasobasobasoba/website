@@ -595,17 +595,17 @@ function RecordsMatchupPage() {
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <div className="max-h-24 overflow-y-auto">
+                      <div className="max-h-24 overflow-y-auto flex">
                         <img className="object-scale-down max-h-14 max-w-14 drop-shadow-xl/50 inline" src={winningTeam.logo}/>
-                        <p className="block text-sm text-slate-800">
+                        <p className="item-body text-sm text-slate-800">
                           {winningTeam.name}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <div className="max-h-24 overflow-y-auto">
+                      <div className="max-h-24 overflow-y-auto flex">
                         <img className="object-scale-down max-h-14 max-w-14 drop-shadow-xl/50 inline" src={losingTeam.logo}/>
-                        <p className="block text-sm text-slate-800">
+                        <p className="item-body text-sm text-slate-800">
                           {losingTeam.name}
                         </p>
                       </div>
