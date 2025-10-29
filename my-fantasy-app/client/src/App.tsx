@@ -271,12 +271,13 @@ function TeamPage() {
         .then(resJSON => {
           let yearRecords = {};
           let vsRecords = {};
+          let totalRecord = {wins: 0, losses:0};
           for (let i = 0; i < resJSON.length; i++){
-
-            
-
-            
+         
             if (resJSON[i].winningTeam == team.id){
+              //adding totalRecord
+              totalRecord['wins']++;
+
               //adding yearRecords data
               if(resJSON[i].year in yearRecords){
                 yearRecords[resJSON[i].year]["wins"]++;
@@ -290,6 +291,8 @@ function TeamPage() {
                 vsRecords[resJSON[i].losingTeam] = {wins: 1, losses: 0}
               }
             } else {
+              //adding totalRecord
+              totalRecord['losses']++;
               //adding yearRecords data
               if(resJSON[i].year in yearRecords){
                 yearRecords[resJSON[i].year]["losses"]++;
@@ -305,7 +308,7 @@ function TeamPage() {
             }
 
           }
-          setTeamInfo({yearRecords: yearRecords, vsRecords: vsRecords});
+          setTeamInfo({yearRecords: yearRecords, vsRecords: vsRecords, totalRecord: totalRecord});
           setLoading(false);
         })
         .catch(error => {
@@ -336,11 +339,11 @@ function TeamPage() {
           ))
         } */}
         <div className="flex items-center gap-4">
-          <div><img class="h-48 w-96 object-contain" src={team.logo}/></div>
+          <div><img className="h-48 w-96 object-contain" src={team.logo}/></div>
           <div>
             <h2 className="text-2xl font-bold">{team.name}</h2>
             <div className="text-sm text-gray-600">Owner: {team.owner}</div>
-            <div className="text-sm text-gray-600 mt-1">All-time (shown seasons): {totalWins}–{totalLosses}</div>
+            <div className="text-sm text-gray-600 mt-1">All-time (shown seasons): {teamInfo.totalRecord.wins}–{teamInfo.totalRecord.losses}</div>
           </div>
         </div>
 
