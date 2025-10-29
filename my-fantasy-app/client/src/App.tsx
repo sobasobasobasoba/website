@@ -391,12 +391,12 @@ function TeamPage() {
                   </p>
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p class="block text-sm font-normal leading-none text-slate-500">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
                     W
                   </p>
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p class="block text-sm font-normal leading-none text-slate-500">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
                     L
                   </p>
                 </th>
@@ -425,22 +425,22 @@ function TeamPage() {
             <thead>
               <tr>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p class="block text-sm font-normal leading-none text-slate-500">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
                     Logo
                   </p>
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p class="block text-sm font-normal leading-none text-slate-500">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
                     Opponent
                   </p>
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p class="block text-sm font-normal leading-none text-slate-500">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
                     W
                   </p>
                 </th>
                 <th className="p-4 border-b border-slate-300 bg-slate-50">
-                  <p class="block text-sm font-normal leading-none text-slate-500">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
                     L
                   </p>
                 </th>
@@ -452,27 +452,27 @@ function TeamPage() {
                 return (
                   <tr key={oppId} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
-                      <div class="max-h-18 max-w-18">
-                        <img class="object-scale-down max-h-16 max-w-16 drop-shadow-xl/50 inline" src={opp.logo}/>
+                      <div className="max-h-18 max-w-18">
+                        <img className="object-scale-down max-h-16 max-w-16 drop-shadow-xl/50 inline" src={opp.logo}/>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <div class="max-h-24 overflow-y-auto">
-                        <p class="block text-sm text-slate-800">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
                           {opp ? opp.name : oppId}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <div class="max-h-24 overflow-y-auto">
-                        <p class="block text-sm text-slate-800">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
                           {rec.wins}
                         </p>
                       </div>
                     </td>
                     <td className="p-4 border-b border-slate-200">
-                      <div class="max-h-24 overflow-y-auto">
-                        <p class="block text-sm text-slate-800">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
                           {rec.losses}
                         </p>
                       </div>
