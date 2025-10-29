@@ -8,41 +8,6 @@
 import React, {useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 
-const fake_teams=[
-  {
-    id: "jonny",
-    vsRecords:{
-      nate: {wins:2, losses:1},
-      pat: {wins:3, losses: 0},
-      paul: {wins: 3, losses:0}
-    }
-  },
-  {
-    id: "nate",
-    vsRecords:{
-      jonny:{wins:1, losses:2},
-      pat: {wins: 2, losses: 1},
-      paul: {wins: 2, losses: 1}
-    }
-  },
-  {
-    id: "pat",
-    vsRecords:{
-      jonny:{wins:0, losses: 3},
-      nate: {wins:1, losses: 2},
-      paul: {wins:3, losses: 0}
-    }
-  },
-  {
-    id: "paul",
-    vsRecords:{
-      jonny:{wins:0, losses: 3},
-      nate: {wins:1, losses: 2},
-      pat: {wins:0,losses:3}
-    }
-  }
-];
-
 // Example dataset: each team has historical seasons with records
 const TEAMS = [
   {
@@ -55,6 +20,10 @@ const TEAMS = [
       { season: 2022, wins: 10, losses: 3, ties: 0, place: 1 },
       { season: 2023, wins: 7, losses: 6, ties: 0, place: 3 },
     ],
+    championships:[
+      {year: 2019, banner: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/2020JonnyChampionshipBanner.png"}
+    ],
+    active:1
   },
   {
     id: "nate",
@@ -66,6 +35,10 @@ const TEAMS = [
       { season: 2022, wins: 6, losses: 7, ties: 0, place: 5 },
       { season: 2023, wins: 9, losses: 4, ties: 0, place: 2 },
     ],
+    championships:[
+      {year: 2020, banner: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/2021NateChampionshipBanner.png"}
+    ],
+    active:1
   },
   {
     id: "dallas",
@@ -77,6 +50,10 @@ const TEAMS = [
       { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
+    championships:[
+      {year: 2024, banner: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/2024DallasChampionshipBanner.png"}
+    ],
+    active:1
   },
   {
     id: "jake",
@@ -88,6 +65,11 @@ const TEAMS = [
       { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
+    championships:[
+      {year: 2022, banner: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/2022JakeChampionshipBanner.png"},
+      {year: 2023, banner: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/2023JakeChampionshipBanner.png"}
+    ],
+    active:1
   },
   {
     id: "drake",
@@ -99,6 +81,10 @@ const TEAMS = [
       { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
+    championships:[
+      {year: 2019, banner: "https://monitoring-redefined-league-assets.s3.us-east-1.amazonaws.com/DrakeChampionshipBanner.png"}
+    ],
+    active:1
   },
   {
     id: "paul",
@@ -110,6 +96,8 @@ const TEAMS = [
       { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
+    championships:[],
+    active:1
   },
   {
     id: "pat",
@@ -121,6 +109,8 @@ const TEAMS = [
       { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
+    championships:[],
+    active:1
   },
   {
     id: "blake",
@@ -132,6 +122,8 @@ const TEAMS = [
       { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
+    championships:[],
+    active:1
   },
   {
     id: "ox",
@@ -143,6 +135,8 @@ const TEAMS = [
       { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
+    championships:[],
+    active:1
   },
   {
     id: "derek",
@@ -154,6 +148,8 @@ const TEAMS = [
       { season: 2022, wins: 4, losses: 9, ties: 0, place: 8 },
       { season: 2023, wins: 8, losses: 5, ties: 0, place: 4 },
     ],
+    championships:[],
+    active:1
   },
   {
     id: "axel",
@@ -165,6 +161,8 @@ const TEAMS = [
       { season: 2022, wins: 10, losses: 3, ties: 0, place: 1 },
       { season: 2023, wins: 7, losses: 6, ties: 0, place: 3 },
     ],
+    championships:[],
+    active:0
   },
   {
     id: "jonk",
@@ -176,6 +174,8 @@ const TEAMS = [
       { season: 2022, wins: 10, losses: 3, ties: 0, place: 1 },
       { season: 2023, wins: 7, losses: 6, ties: 0, place: 3 },
     ],
+    championships:[],
+    active:0
   },
   {
     id: "nick",
@@ -187,6 +187,8 @@ const TEAMS = [
       { season: 2022, wins: 10, losses: 3, ties: 0, place: 1 },
       { season: 2023, wins: 7, losses: 6, ties: 0, place: 3 },
     ],
+    championships:[],
+    active:0
   },
 ];
 
@@ -253,8 +255,9 @@ function Home() {
     <main className="container mx-auto p-6 bg-white">
       <div className="rounded-2xl p-6 shadow-md">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {TEAMS.map((t) => (
-            <Link key={t.id} to={`/team/${t.id}`} className="p-4 border rounded hover:shadow bg-onyx-400">
+          {TEAMS.map((t) => 
+          (
+            <Link key={t.id} to={`/team/${t.id}`} className={`p-4 border rounded hover:shadow bg-${t.active ? "onyx" : "gray"}-400`}>
               <img className="h-48 w-96 object-contain drop-shadow-xl/50" src={t.logo}/>
               <div className="font-bold">{t.name}</div>
               <div className="text-sm text-gray-600">Owner: {t.owner}</div>
