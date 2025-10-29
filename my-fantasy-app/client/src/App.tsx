@@ -199,15 +199,15 @@ function Header() {
           <Link to="/" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Home</Link>
           <Link to="/teams" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Teams</Link>
           <Link to="/records/matchups" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Matchup Records</Link>
+          <Link to="/allmatchups" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">All Matchups Log</Link> 
         </nav>
       </div>
     </header>
   );
 }
 
-function Home() {
-
-  const [teamInfo, setTeamInfo] = useState(null);
+function AllMatchups() {
+    const [teamInfo, setTeamInfo] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -230,6 +230,23 @@ function Home() {
   }, []);
 
   if (loading) return <main className="p-6 text-center">Loading team info...</main>;
+
+  return (
+    <main className="container mx-auto p-6 bg-white">
+      <div className="rounded-2xl p-6 shadow-md">
+        {
+          teamInfo.map((m) => (
+            <div className="font-bold text-black">Week {m.week}, {m.year} - {m.winningTeam} beat {m.losingTeam} with a score of {m.winningTeamPoints} to {m.losingTeamPoints}</div>
+          ))
+        }
+      </div>
+    </main>
+  );
+}
+
+function Home() {
+
+
 
   return (
     
@@ -1039,6 +1056,7 @@ export default function App() {
           <Route path="/teams" element={<TeamsList />} />
           <Route path="/team/:id" element={<TeamPage />} />
           <Route path="/records/matchups" element={<RecordsMatchupPage />} />
+          <Route path="/allmatchups" element={<AllMatchups />} />
           <Route path="*" element={<main className="container mx-auto p-6"><div className="bg-white p-6 rounded">404 — Not Found</div></main>} />
         </Routes>
         <footer className="text-center p-4 text-sm text-gray-500">Monitoring Redefined</footer>
