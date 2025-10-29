@@ -46,6 +46,17 @@ const fake_teams=[
 // Example dataset: each team has historical seasons with records
 const TEAMS = [
   {
+    id: "axel",
+    name: "Green Bay Fackers",
+    owner: "Axel Ayala",
+    logo: "https://media.licdn.com/dms/image/v2/C5603AQEpsZWDAz66qQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1591982139048?e=2147483647&v=beta&t=7b3pmyb2PkMczlhQet3C8dHIxPO3Zc8V9dvVDH-As40",
+    history: [
+      { season: 2021, wins: 8, losses: 5, ties: 0, place: 2 },
+      { season: 2022, wins: 10, losses: 3, ties: 0, place: 1 },
+      { season: 2023, wins: 7, losses: 6, ties: 0, place: 3 },
+    ],
+  },
+  {
     id: "jonny",
     name: "The Pillar Bois",
     owner: "Jonny Schuller",
