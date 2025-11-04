@@ -215,7 +215,7 @@ function AllMatchups() {
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://54.82.193.253:5000/api/matchups")
+      fetch("http://54.82.193.253:5001/api/matchups")
         .then(response=> response.json())
         .then(resJSON => {
           console.log(resJSON);
@@ -317,7 +317,7 @@ function TeamPage() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://54.82.193.253:5000/api/team/?team=" + team?.id)
+      fetch("http://54.82.193.253:5001/api/team/?team=" + team?.id)
         .then(response=> response.json())
         .then(resJSON => {
 
@@ -542,7 +542,7 @@ function RecordsMatchupPage() {
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://54.82.193.253:5000/api/records/matchup")
+      fetch("http://54.82.193.253:5001/api/records/matchup")
         .then(response=> response.json())
         .then(resJSON => {
           
@@ -1062,7 +1062,7 @@ function RecordsTeamPage() {
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://54.82.193.253:5000/api/matchups")
+      fetch("http://54.82.193.253:5001/api/matchups")
         .then(response=> response.json())
         .then(resJSON => {
 
