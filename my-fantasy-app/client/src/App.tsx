@@ -1079,6 +1079,7 @@ function RecordsTeamPage() {
     }
     fetchTeamInfo();
   }, []);
+}
 
 export default function App() {
   return (
