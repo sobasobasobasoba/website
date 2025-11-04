@@ -1160,6 +1160,81 @@ function RecordsTeamPage() {
               })}
             </tbody>
           </table>
+          <h3 className="font-semibold">Lowest Scores</h3>
+          <table className="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Year
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Week
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">                     
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Score
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(scoreInfo.lowest).map(([s]) => {
+                
+                let game = scoreInfo.lowest[s];
+                const teamObj = TEAMS.find((t) => t.id === game.team);
+                return (
+                  <tr key={s + 1} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-18 max-w-18">
+                        <p className="block text-sm text-slate-800">
+                          {game.year}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {game.week}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_5px_rgba(0,0,0,0.25)] inline" src={teamObj.logo}/>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {teamObj.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {game.points}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </main>
   )
