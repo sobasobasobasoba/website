@@ -1119,7 +1119,7 @@ function RecordsTeamPage() {
               {Object.entries(scoreInfo.highest).map(([s]) => {
                 
                 let game = scoreInfo.highest[s];
-                const teamObj = TEAMS.find((t) => t.id === game.winningTeam);
+                const teamObj = TEAMS.find((t) => t.id === game.team);
                 return (
                   <tr key={s + 1} className="hover:bg-slate-50">
                     <td className="p-4 border-b border-slate-200">
