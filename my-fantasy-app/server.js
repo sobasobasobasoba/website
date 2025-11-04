@@ -120,4 +120,39 @@ app.get("/api/records/matchup", (req, res) => {
 
 });
 
+app.get("/api/records/scores", (req, res) => {
+
+    var highestQuery = "SELECT * FROM monitoring_redefined.scores ORDER BY points DESC LIMIT 10;"
+    var lowestQuery = "SELECT *FROM monitoring_redefined.scores ORDER BY points ASC LIMIT 10;"
+    
+    let queryOutput = {};
+    res.set({"Access-Control-Allow-Origin": "*"});
+
+    async.parallel([
+       function(parallel_done) {
+           db.query(highestQuery, {}, function(err, results) {
+               if (err) return parallel_done(err);
+               queryOutput.highest = results;
+               console.log(results);
+               parallel_done();
+           });
+       },
+       function(parallel_done) {
+           db.query(lowestQuery, {}, function(err, results) {
+               if (err) return parallel_done(err);
+               queryOutput.lowest = results;
+               console.log(results);
+               parallel_done();
+           });
+       }
+    ], function(err) {
+         if (err) console.log(err);
+         console.log("parallel_done");
+         console.log(queryOutput);
+         res.set({"Access-Control-Allow-Origin": "*"});
+         res.send(queryOutput);
+    });
+
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

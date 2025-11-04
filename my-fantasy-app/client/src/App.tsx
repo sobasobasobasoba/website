@@ -1057,17 +1057,17 @@ function RecordsMatchupPage() {
 }
 
 function RecordsTeamPage() {
-  const [teamInfo, setTeamInfo] = useState(null);
+  const [scoreInfo, setScoreInfo] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://54.82.193.253:5001/api/matchups")
+      fetch("http://54.82.193.253:5001/api/records/scores")
         .then(response=> response.json())
         .then(resJSON => {
 
-          let allScores = {};
-          setTeamInfo(resJSON);
+          console.log(resJSON);
+          setScoreInfo(resJSON);
           setLoading(false);
 
         })
@@ -1079,6 +1079,90 @@ function RecordsTeamPage() {
     }
     fetchTeamInfo();
   }, []);
+
+  if (loading) return <main className="p-6 text-center">Loading team info...</main>;
+
+  return (
+    <main className="container mx-auto p-6">
+      <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+          <h3 className="font-semibold">Highest Scores</h3>
+          <table className="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Year
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Week
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">                     
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Score
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(scoreInfo.highest).map(([s]) => {
+                
+                let game = scoreInfo.highest[s];
+                const teamObj = TEAMS.find((t) => t.id === game.winningTeam);
+                return (
+                  <tr key={s + 1} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-18 max-w-18">
+                        <p className="block text-sm text-slate-800">
+                          {game.year}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {game.week}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_5px_rgba(0,0,0,0.25)] inline" src={teamObj.logo}/>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {teamObj.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {game.points}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </main>
+  )
 }
 
 export default function App() {
