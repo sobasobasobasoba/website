@@ -123,7 +123,9 @@ app.get("/api/records/matchup", (req, res) => {
 app.get("/api/records/scores", (req, res) => {
 
     var highestQuery = "SELECT * FROM monitoring_redefined.scores ORDER BY points DESC LIMIT 10;"
-    var lowestQuery = "SELECT *FROM monitoring_redefined.scores ORDER BY points ASC LIMIT 10;"
+    var lowestQuery = "SELECT * FROM monitoring_redefined.scores ORDER BY points ASC LIMIT 10;"
+    var highestSeasonQuery = "SELECT AVG(points) as points, team, year FROM monitoring_redefined.scores WHERE isPlayoffs=0 AND isConsolation=0 GROUP BY team, year ORDER BY points desc LIMIT 10"
+    var lowestSeasonQuery = "SELECT AVG(points) as points, team, year FROM monitoring_redefined.scores WHERE isPlayoffs=0 AND isConsolation=0 GROUP BY team, year ORDER BY points asc LIMIT 10"
     
     let queryOutput = {};
     res.set({"Access-Control-Allow-Origin": "*"});
@@ -141,6 +143,22 @@ app.get("/api/records/scores", (req, res) => {
            db.query(lowestQuery, {}, function(err, results) {
                if (err) return parallel_done(err);
                queryOutput.lowest = results;
+               console.log(results);
+               parallel_done();
+           });
+       }, 
+        function(parallel_done) {
+           db.query(highestSeasonQuery, {}, function(err, results) {
+               if (err) return parallel_done(err);
+               queryOutput.highestSeason = results;
+               console.log(results);
+               parallel_done();
+           });
+       },
+        function(parallel_done) {
+           db.query(lowestSeasonQuery, {}, function(err, results) {
+               if (err) return parallel_done(err);
+               queryOutput.lowestSeason = results;
                console.log(results);
                parallel_done();
            });

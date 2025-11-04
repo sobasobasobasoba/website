@@ -1235,6 +1235,132 @@ function RecordsTeamPage() {
               })}
             </tbody>
           </table>
+          <h3 className="font-semibold">Highest Scoring Seasons</h3>
+          <table className="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Year
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">                     
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Average Points per Week
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(scoreInfo.highestSeason).map(([s]) => {
+                
+                let season = scoreInfo.highestSeason[s];
+                const teamObj = TEAMS.find((t) => t.id === season.team);
+                return (
+                  <tr key={s + 1} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-18 max-w-18">
+                        <p className="block text-sm text-slate-800">
+                          {season.year}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_5px_rgba(0,0,0,0.25)] inline" src={teamObj.logo}/>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {teamObj.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {season.points}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <h3 className="font-semibold">Lowest Scoring Seasons</h3>
+          <table className="w-full text-left table-auto min-w-max">
+            <thead>
+              <tr>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Year
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Team
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">                     
+                  </p>
+                </th>
+                <th className="p-4 border-b border-slate-300 bg-slate-50">
+                  <p className="block text-sm font-normal leading-none text-slate-500">
+                    Average Points per Week
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(scoreInfo.lowestSeason).map(([s]) => {
+                
+                let season = scoreInfo.lowest[s];
+                const teamObj = TEAMS.find((t) => t.id === season.team);
+                return (
+                  <tr key={s + 1} className="hover:bg-slate-50">
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-18 max-w-18">
+                        <p className="block text-sm text-slate-800">
+                          {season.year}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <img className="object-scale-down max-h-12 max-w-12 drop-shadow-[0_0px_5px_rgba(0,0,0,0.25)] inline" src={teamObj.logo}/>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {teamObj.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-4 border-b border-slate-200">
+                      <div className="max-h-24 overflow-y-auto">
+                        <p className="block text-sm text-slate-800">
+                          {season.points}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </main>
   )
