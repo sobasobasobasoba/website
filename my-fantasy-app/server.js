@@ -12,8 +12,8 @@ app.use(express.json());
 var db = mysql.createPool({
     connectionLimit: 10,
     host: "184.72.214.123",
-    user: "root",
-    password: "Teddy1065Dredge!",   // ← replace with your MySQL password
+    user: "dbuser",
+    password: "J1mhalpert!",   // ← replace with your MySQL password
     database: "monitoring_redefined" // ← replace with your DB name
 })
 
