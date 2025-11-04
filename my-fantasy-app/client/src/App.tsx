@@ -201,6 +201,7 @@ function Header() {
           <Link to="/" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Home</Link>
           <Link to="/teams" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Teams</Link>
           <Link to="/records/matchups" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Matchup Records</Link>
+          <Link to="/records/teams" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">Team Reacords</Link>
           <Link to="/allmatchups" className="px-3 py-2 rounded hover:bg-indigo-500/70 text-color-white">All Matchups Log</Link> 
         </nav>
       </div>
@@ -214,7 +215,7 @@ function AllMatchups() {
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://184.72.214.123:5000/api/matchups")
+      fetch("http://54.82.193.253:5000/api/matchups")
         .then(response=> response.json())
         .then(resJSON => {
           console.log(resJSON);
@@ -316,7 +317,7 @@ function TeamPage() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://184.72.214.123:5000/api/team/?team=" + team?.id)
+      fetch("http://54.82.193.253:5000/api/team/?team=" + team?.id)
         .then(response=> response.json())
         .then(resJSON => {
 
@@ -541,7 +542,7 @@ function RecordsMatchupPage() {
 
   useEffect(() => {
     async function fetchTeamInfo() {
-      fetch("http://184.72.214.123:5000/api/records/matchup")
+      fetch("http://54.82.193.253:5000/api/records/matchup")
         .then(response=> response.json())
         .then(resJSON => {
           
@@ -1055,6 +1056,30 @@ function RecordsMatchupPage() {
   );
 }
 
+function RecordsTeamPage() {
+  const [teamInfo, setTeamInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchTeamInfo() {
+      fetch("http://54.82.193.253:5000/api/matchups")
+        .then(response=> response.json())
+        .then(resJSON => {
+
+          let allScores = {};
+          setTeamInfo(resJSON);
+          setLoading(false);
+
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          setLoading(false);
+        })
+
+    }
+    fetchTeamInfo();
+  }, []);
+
 export default function App() {
   return (
     <Router>
@@ -1065,6 +1090,7 @@ export default function App() {
           <Route path="/teams" element={<TeamsList />} />
           <Route path="/team/:id" element={<TeamPage />} />
           <Route path="/records/matchups" element={<RecordsMatchupPage />} />
+          <Route path="/records/teams" element={<RecordsTeamPage />} />
           <Route path="/allmatchups" element={<AllMatchups />} />
           <Route path="*" element={<main className="container mx-auto p-6"><div className="bg-white p-6 rounded">404 — Not Found</div></main>} />
         </Routes>

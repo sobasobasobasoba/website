@@ -3,7 +3,7 @@ import express from "express";
 import mysql from "mysql2";
 import async from "async";
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 const app = express();
 //app.use(cors());
 app.use(express.json());
@@ -11,7 +11,7 @@ app.use(express.json());
 
 var db = mysql.createPool({
     connectionLimit: 10,
-    host: "localhost",
+    host: "184.72.214.123",
     user: "root",
     password: "Teddy1065Dredge!",   // ← replace with your MySQL password
     database: "monitoring_redefined" // ← replace with your DB name
