@@ -1326,7 +1326,7 @@ function RecordsTeamPage() {
             <tbody>
               {Object.entries(scoreInfo.lowestSeason).map(([s]) => {
                 
-                let season = scoreInfo.lowest[s];
+                let season = scoreInfo.lowestSeason[s];
                 const teamObj = TEAMS.find((t) => t.id === season.team);
                 return (
                   <tr key={s + 1} className="hover:bg-slate-50">
